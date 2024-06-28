@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/*input[type="text"],textarea,select,fieldset{appearance:block;}*/
+select::-ms-expand{display: none;}
+.select select.classic {background:none;}
+.select select.classic:focus {background:none;}
+
+
+/*main*/
+.main_cont_03 .main_hansot_bg.on {
+	transform: scale(1) !important;
+}
+
+/*menu*/
+.hansot_menu .menu_list_wrap .list_wrap ul li a + .item-img:before {
+	display:none;
+}
+.hansot_menu .menu_list_wrap .list_wrap ul li a:hover + .item-img:before {
+	display:none;
+}
+
+.hansot_menu .menu_list_wrap .list_wrap ul li a:hover + .item-img img {
+	transform: scale(1) !important;
+}
+
+/*franchise > found_money*/
+.found_money .found_list div.bank_wrap div.bank_logo {padding-top:33px;}
+
+
+
+
+

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>kr.co.hsd</groupId>
+        <artifactId>hsd-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>hsd-pc-web</artifactId>
+    <packaging>jar</packaging>
+    <name>hsd-pc-web</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>kr.co.hsd</groupId>
+            <artifactId>hsd-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+		<dependency>
+		     <groupId>org.springframework.boot</groupId>
+		     <artifactId>spring-boot-starter</artifactId>
+		 </dependency>
+		 <dependency>
+			 <groupId>org.springframework.boot</groupId>
+			 <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		 <!--<dependency>
+			<groupId>org.springframework.boot</groupId> 
+		    <artifactId>spring-boot-starter-tomcat</artifactId> 
+		    <scope>compile</scope> 
+		</dependency>-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-legacy</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>-->
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<!-- tomcat-embed-jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+        </dependency>
+        
+
+    </dependencies>
+
+	
+	<build>
+		<defaultGoal>package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <version>3.8.1</version>
+			    <configuration>
+			        <release>8</release>  <!--or <release>10</release>-->
+			    </configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- log configuration -->
+                <logback.loglevel>DEBUG</logback.loglevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <build>
+                <finalName>hsd-pc-web-dev</finalName>
+            </build>
+            <properties>
+                <!-- log configuration -->
+                <logback.loglevel>DEBUG</logback.loglevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>stage</id>
+            <build>
+                <finalName>hsd-pc-web-stage</finalName>
+            </build>
+            <properties>
+                <!-- log configuration -->
+                <logback.loglevel>DEBUG</logback.loglevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <build>
+                <finalName>hsd-pc-web-prod</finalName>
+            </build>
+            <properties>
+                <!-- log configuration -->
+                <logback.loglevel>INFO</logback.loglevel>
+            </properties>
+        </profile>
+    </profiles>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.sms.repository.SmsRepository">
+
+    <!-- 문자전송 -->
+    <insert id="sendSms">
+        /* kr.co.hsd.core.sms.repository.SmsRepository.sendSms */
+        INSERT INTO MSG_DATA (
+          CUR_STATE, REQ_DATE, CALL_TO, CALL_FROM, SMS_TXT, MSG_TYPE
+        ) VALUES (
+          0, NOW(), #{call_to}, #{call_from}, #{sms_txt}, #{msg_type}
+        )
+    </insert>
+</mapper>

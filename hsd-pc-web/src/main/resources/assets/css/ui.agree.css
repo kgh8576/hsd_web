@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+/**************************** s:: 공통 *************************/
+.content.area_footer .agreement .agree_wrap{background-color: #fff;}
+.agree_list {border-top:1px solid #eeecec; padding:70px 100px 100px 100px; box-sizing: border-box;}
+
+
+/**************************** e:: 공통 *************************/
+
+/*개인정보*/
+.agree_list p.policy_tit {padding:0 0 30px 0; font-size:24px;}
+.agree_list .agree_cont p {line-height:160%;}
+.agree_list .agree_cont .agree_txt p {padding-top:30px;}
+.agree_list .agree_cont .agree_txt p:first-child {padding-top:0;}
+
+.policy .list {padding-top:50px;}
+.policy .list.first {padding-top:70px;}
+.policy .list:first-child {padding-top:75px;}
+.policy .list h3.h3_tit {font-size:18px; color:#f2c000; padding-bottom:20px; line-height:150%;}
+.policy .list h3.h3_tit p.list_txt {padding:27px 0 0 0;}
+.policy .list h3.h3_tit + p {padding-bottom:20px;}
+
+.policy .list ol.o_st_01 li {padding-top:20px;}
+.policy .list ol.o_st_01 li:first-child {padding-top:0;}
+.policy .list ol.o_st_01 li p.list_tit {font-weight:bold; color:#5c5953;}
+.policy .list ol.o_st_01 li p.list_txt {color:#909090; padding-top:5px;}
+
+.policy .list ul.u_st_01 li {padding-top:20px;}
+.policy .list ul.u_st_01 li:first-child {padding-top:0;}
+.policy .list ul.u_st_01 li p.list_tit {color:#909090;}
+.policy .list ul.u_st_01 li:last-child p.list_tit {padding-bottom:10px;}
+.policy .list ul.u_st_01 li span.s_block {padding:16px 0 0 17px; color:#909090;}
+.policy .list ul.u_st_01.none li p.list_tit {padding-bottom:10px;}
+.policy .list ul.u_st_01.none span.s_block {padding:0;}
+
+
+.policy .list p.list_txt02 {color:#909090; padding-top:20px;}
+.policy .list ol.o_st_02 {color:#909090;}
+.policy .list ol.o_st_02 p.list_tit {color:#373737; padding-top:20px;}
+.policy .list ol.o_st_02 p.list_tit ,
+.policy .list ol.o_st_02 span.s_block {padding-left:17px;}
+.policy .list ol.o_st_02 span.s_block {padding-top:10px;}
+
+/*이용약관*/
+.agree .list {padding-top:50px;}
+.agree .list:first-child {padding-top:4px;}
+.agree .list h3.h3_tit {font-weight:bold; font-size:18px; color:#f2c000; line-height:150%;}
+.agree .list div.ag_list h4.h4_tit {font-weight:bold; padding:25px 0 10px 0; color:#5c5953;}
+.agree .list div.ag_list p.list_txt {color:#909090;}
+.agree .list div.ag_list ol.o_st_01 > li {padding-top:10px;}
+.agree .list div.ag_list ol.o_st_01 div.sub_list {padding-left:18px; color:#909090;}
+.agree .list div.ag_list ol.o_st_01 div.sub_list > ol > li {padding:10px 0 0 0;}
+.agree .list div.ag_list ol.o_st_01 div.sub_list > ol > li:last-child {padding:10px 0 10px 0;}
+
+
+/* media query */
+@media all and (max-width:1023px){
+	.agree_list {padding:30px 15px 60px 15px;}
+
+
+}
+
+@media all and (max-width:768px){
+
+}
+
+
+

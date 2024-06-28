@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.board.repository.CustomerVoiceRepository">
+    <resultMap id="CustomerVoiceResultMap" type="CustomerVoice">
+        <id		property="idx" column="IDX" />
+        <result property="name" column="NAME" />
+        <result property="email" column="EMAIL" />
+        <result property="hp" column="HP" />
+        <result property="cate" column="CATE" />
+        <result property="store" column="STORE" />
+        <result property="title" column="TITLE" />
+        <result property="memberIdx" column="MIDX" />
+        <result property="contents" column="CONTENTS" />
+        <result property="attachFile" column="ATTACH_FILE" />
+        <result property="attachName" column="ATTACH_NAME" />
+        <result property="cateName" column="CATE_NAME" />
+        <result property="resStatus" column="RES_STATUS" />
+        <result property="regdt" column="REGDT" />
+        <result property="resdt" column="RESDT" />
+        <result property="resContents" column="RES_CONTENTS" />
+        <result property="marketing_agree" column="prevIdx" />
+        <result property="store_agree" column="prevIdx" />
+        <result property="agreeEmail" column="prevIdx" />
+        <result property="agreeMobile" column="prevIdx" />
+        <result property="prevIdx" column="prevIdx" />
+        <result property="prevTitle" column="prevTitle" />
+        <result property="nextIdx" column="nextIdx" />
+        <result property="nextTitle" column="nextTitle" />
+    </resultMap>
+    <!-- where 문 -->
+    <sql id="boardCondition">
+        <where>
+            MIDX = #{memberIdx}
+            <if test="searchInfo != null">
+                <foreach collection="searchInfo.entrySet()" index="key" item="val">
+                    <!-- key = 검색조건, val = 검색값 -->
+                    <choose>
+                        <when test="key == 'all'">
+                            AND (TITLE LIKE CONCAT('%',#{val},'%') OR CONTENTS LIKE CONCAT('%',#{val},'%'))
+                        </when>
+                    </choose>
+                </foreach>
+            </if>
+        </where>
+    </sql>
+
+    <!-- CustomerVoice count -->
+    <select id="listCustomerVoiceCnt" resultType="int">
+        SELECT	COUNT(*) CNT
+        FROM TB_CUSTOMER_VOICE
+        <include refid="boardCondition"/>
+    </select>
+
+
+    <!-- CustomerVoice 목록 -->
+    <select id="listCustomerVoice" resultMap="CustomerVoiceResultMap">
+        SELECT	A.*, (SELECT CVAL FROM TB_CODE WHERE IDX=A.CATE) CATE_NAME
+        FROM TB_CUSTOMER_VOICE A
+        <include refid="boardCondition"/>
+        <include refid="Common.sort"/>
+        <include refid="Common.limit"/>
+    </select>
+
+    <!-- 게시판 상세 -->
+    <select id="getCustomerVoice" resultMap="CustomerVoiceResultMap">
+        SELECT A.* , (SELECT CVAL FROM TB_CODE WHERE IDX=A.CATE) CATE_NAME
+        FROM TB_CUSTOMER_VOICE A
+        WHERE A.IDX=#{idx}
+    </select>
+
+    <!-- 이전글 -->
+    <select id="getPrevCustomerVoice" resultMap="CustomerVoiceResultMap">
+        SELECT IDX as prevIdx, TITLE as prevTitle FROM TB_CUSTOMER_VOICE WHERE MIDX = #{memberIdx} AND IDX  <![CDATA[ < ]]>  #{idx} ORDER BY IDX DESC LIMIT 1
+    </select>
+
+    <!-- 다음글 -->
+    <select id="getNextCustomerVoice" resultMap="CustomerVoiceResultMap">
+        SELECT IDX as nextIdx, TITLE as nextTitle FROM TB_CUSTOMER_VOICE WHERE MIDX =#{memberIdx} AND IDX  <![CDATA[ > ]]> #{idx} ORDER BY IDX ASC LIMIT 1
+    </select>
+    
+    <insert id="insertBoard">
+        INSERT INTO TB_CUSTOMER_VOICE (NAME, EMAIL, HP, CATE, STORE, TITLE, CONTENTS, ATTACH_FILE, ATTACH_NAME, REGDT, MARKETING_AGREE, STORE_AGREE,AGREE_MOBILE, AGREE_EMAIL,MIDX) VALUES
+        (#{name}, #{email}, #{hp}, #{cate}, #{store}, #{title}, #{contents}, #{attachFile}, #{attachName}, NOW(), #{marketing_agree}, #{store_agree}, #{agreeMobile}, #{agreeEmail},#{memberIdx})
+    </insert>
+
+    <delete id="deleteCustomerVoice">
+        delete from TB_CUSTOMER_VOICE where idx=#{idx}
+    </delete>
+</mapper>

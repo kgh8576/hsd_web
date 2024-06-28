@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.board.repository.BoardRepository">
+
+    <resultMap id="simpleBoardResult" type="board">
+        <id		property="idx" column="IDX" />
+        <result property="bid" column="BID" />
+        <result property="cate" column="CATE" />
+        <result property="cateName" column="CATE_NAME" />
+        <result property="store" column="STORE" />
+        <result property="storeName" column="STORE_NAME" />
+        <result property="title" column="TITLE" />
+        <result property="contents" column="CONTENTS" />
+        <result property="description" column="DESCRIPTION" />
+        <result property="thumImg" column="THUM_IMG" />
+        <result property="attachFile" column="ATTACH_FILE" />
+        <result property="attachName" column="ATTACH_NAME" />
+        <result property="link" column="LINK" />
+        <result property="etc" column="ETC" />
+        <result property="hits" column="HITS" />
+        <result property="showYn" column="SHOWYN" />
+        <result property="startDt" column="STARTDT" />
+        <result property="endDt" column="ENDDT" />
+        <result property="regDt" column="REGDT" />
+
+        <result property="prevIdx" column="prevIdx" />
+        <result property="prevTitle" column="prevTitle" />
+        <result property="nextIdx" column="nextIdx" />
+        <result property="nextTitle" column="nextTitle" />
+    </resultMap>
+
+    <!-- where 문 -->
+    <sql id="boardCondition">
+        <where>
+            BID= #{bid} AND SHOWYN = 'Y'
+            <!--<if test="bid == 'event' or bid == 'offevent'">-->
+            <!--AND (DATE(NOW()) BETWEEN DATE(STARTDT) AND DATE(ENDDT))-->
+            <!--</if>-->
+            <if test="searchWord != null and searchWord != ''">
+            AND (TITLE LIKE CONCAT('%',#{searchWord},'%') OR CONTENTS LIKE CONCAT('%',#{searchWord},'%'))
+            </if>
+            <if test="cate != null and cate != ''">
+            AND CATE = #{cate}
+            </if>
+            <if test="store != null and store != 0">
+            AND STORE = ${store}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 게시판 count -->
+    <select id="listBoardCnt" resultType="int">
+        /* kr.co.core.board.repository.BoardRepository.listBoardCnt */
+        SELECT	COUNT(*) CNT
+        FROM	TB_BOARD
+        <include refid="boardCondition"/>
+    </select>
+
+
+    <!-- 게시판 목록 -->
+    <select id="listBoard" resultMap="simpleBoardResult">
+        /* kr.co.core.board.repository.BoardRepository.listBoard */
+        SELECT
+          A.*,
+          CASE WHEN IFNULL(CATE,0) != 0 THEN (SELECT CVAL FROM TB_CODE WHERE IDX=A.CATE) ELSE '' END AS CATE_NAME,
+          CASE WHEN STORE IS NOT NULL THEN (SELECT NAME FROM TB_STORE WHERE IDX=A.STORE) ELSE '' END AS STORE_NAME
+        FROM	TB_BOARD A
+        <include refid="boardCondition"/>
+        <include refid="Common.sort"/>
+        <include refid="Common.limit"/>
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id="updateBoardHits">
+        UPDATE TB_BOARD
+        SET HITS = IFNULL(HITS, 0)+1
+        WHERE IDX = #{idx} AND BID = #{bid}
+    </update>
+
+    <!-- 게시판 상세 -->
+    <select id="getBoard" resultMap="simpleBoardResult">
+        /* kr.co.core.board.repository.BoardRepository.getBoard */
+        SELECT
+          A.*,
+          CASE WHEN IFNULL(CATE,0) != 0 THEN (SELECT CVAL FROM TB_CODE WHERE IDX=A.CATE) ELSE '' END AS CATE_NAME,
+          CASE WHEN STORE IS NOT NULL THEN (SELECT NAME FROM TB_STORE WHERE IDX=A.STORE) ELSE '' END AS STORE_NAME
+        FROM  TB_BOARD A
+        WHERE IDX = #{idx} AND BID = #{bid} AND SHOWYN = 'Y'
+    </select>
+
+    <!-- 이전글 -->
+    <select id="getPrevBoard" resultMap="simpleBoardResult">
+        SELECT IDX as prevIdx, TITLE as prevTitle
+        FROM TB_BOARD
+        <include refid="boardCondition"/>
+        AND IDX  <![CDATA[ < ]]>  #{idx}
+        ORDER BY IDX DESC LIMIT 1
+    </select>
+
+    <!-- 다음글 -->
+    <select id="getNextBoard" resultMap="simpleBoardResult">
+        SELECT IDX as nextIdx, TITLE as nextTitle
+        FROM TB_BOARD
+        <include refid="boardCondition"/>
+        AND IDX  <![CDATA[ > ]]> #{idx}
+        ORDER BY IDX ASC LIMIT 1
+    </select>
+</mapper>

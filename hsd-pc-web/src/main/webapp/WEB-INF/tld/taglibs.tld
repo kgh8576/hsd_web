@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>Custom Tag Library</description>
+    <tlib-version>2.0</tlib-version>
+    <short-name>tags</short-name>
+    <uri>/WEB-INF/tld/taglibs.tld</uri>
+
+    <tag>
+        <name>pagination</name>
+        <tag-class>kr.co.hsd.web.tags.PaginationTag</tag-class>
+        <body-content>empty</body-content>
+        <description>Pagination Tag</description>
+        <attribute>
+            <name>paginationInfo</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Pagination Object</description>
+        </attribute>
+        <attribute>
+            <name>jsFunction</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Form Submit Function</description>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>phonenumber</name>
+        <tag-class>kr.co.hsd.web.tags.PhoneNumberTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>phone</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+</taglib>

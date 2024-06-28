@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.board.repository.FAQRepository">
+    <resultMap id="FAQResultMap" type="FAQ">
+        <id		property="idx" column="IDX" />
+        <result property="categoryIdx" column="CATEGORY_IDX" />
+        <result property="categoryName" column="CATEGORY_NAME" />
+        <result property="contents" column="CONTENTS" />
+        <result property="title" column="TITLE" />
+        <result property="updDttm" column="UPD_DTTM" />
+        <result property="regDttm" column="REG_DTTM" />
+        <result property="prevIdx" column="prevIdx" />
+        <result property="prevTitle" column="prevTitle" />
+        <result property="nextIdx" column="nextIdx" />
+        <result property="nextTitle" column="nextTitle" />
+    </resultMap>
+
+    <!-- where 문 -->
+    <sql id="boardCondition">
+        <where>
+            1=1
+            <if test="searchInfo != null">
+                <foreach collection="searchInfo.entrySet()" index="key" item="val">
+                    <!-- key = 검색조건, val = 검색값 -->
+                    <choose>
+                        <when test="key == 'all'">
+                            AND (TITLE LIKE CONCAT('%',#{val},'%') OR CONTENTS LIKE CONCAT('%',#{val},'%'))
+                        </when>
+                    </choose>
+                </foreach>
+            </if>
+            <if test="category_name != null  and category_name != ''">
+                AND faqCategory.CATEGORY_CODE = #{category_name}
+            </if>
+        </where>
+    </sql>
+
+    <!-- FAQ count -->
+    <select id="listFAQCnt" resultType="int">
+        SELECT	COUNT(*) CNT
+        FROM TB_FAQ faq
+        INNER JOIN TB_FAQ_CATEGORY faqCategory ON faq.CATEGORY_IDX = faqCategory.IDX
+        <include refid="boardCondition"/>
+    </select>
+
+
+    <!-- FAQ 목록 -->
+    <select id="listFAQ" resultMap="FAQResultMap">
+        SELECT
+        faq.*
+        ,faqCategory.CATEGORY_NAME AS CATEGORY_NAME
+        FROM TB_FAQ faq
+        INNER JOIN TB_FAQ_CATEGORY faqCategory ON faq.CATEGORY_IDX = faqCategory.IDX
+        <include refid="boardCondition"/>
+        <include refid="Common.sort"/>
+        <include refid="Common.limit"/>
+    </select>
+
+    <!-- 게시판 상세 -->
+    <select id="getFAQ" resultMap="FAQResultMap">
+        SELECT
+        faq.*
+        ,faqCategory.CATEGORY_NAME AS CATEGORY_NAME
+        FROM TB_FAQ faq
+        INNER JOIN TB_FAQ_CATEGORY faqCategory ON faq.CATEGORY_IDX = faqCategory.IDX
+        WHERE faq.IDX = #{idx}
+    </select>
+
+    <!-- 이전글 -->
+    <select id="getPrevFAQ" resultMap="FAQResultMap">
+        SELECT IDX as prevIdx, TITLE as prevTitle FROM TB_FAQ WHERE IDX  <![CDATA[ < ]]>  #{idx} ORDER BY IDX DESC LIMIT 1
+    </select>
+
+    <!-- 다음글 -->
+    <select id="getNextFAQ" resultMap="FAQResultMap">
+        SELECT IDX as nextIdx, TITLE as nextTitle FROM TB_FAQ WHERE IDX  <![CDATA[ > ]]> #{idx} ORDER BY IDX ASC LIMIT 1
+    </select>
+</mapper>

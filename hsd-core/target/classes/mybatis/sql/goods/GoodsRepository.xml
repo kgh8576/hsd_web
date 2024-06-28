@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.goods.repository.GoodsRepository">
+
+    <resultMap id="simpleKeywordResult" type="goods_keyword">
+        <id		property="idx" column="IDX" />
+        <result property="keyword" column="TITLE" />
+        <result property="goodIdx" column="GOODS_IDX" />
+    </resultMap>
+
+    <resultMap id="simpleGoodsResult" type="goods">
+        <id		property="idx" column="IDX" />
+        <result property="title" column="TITLE" />
+        <result property="subTitle" column="SUB_TITLE" />
+        <result property="price" column="PRICE" />
+        <result property="sideDishCount" column="SIDEDISH_COUNT" />
+        <result property="series" column="SERIES" />
+        <result property="imagePath" column="IMAGE_PATH" />
+        <result property="calorie" column="CALORIE" />
+        <result property="al1" column="AL1" />
+        <result property="al2" column="AL2" />
+        <result property="al3" column="AL3" />
+        <result property="al4" column="AL4" />
+        <result property="al5" column="AL5" />
+        <result property="al6" column="AL6" />
+        <result property="al7" column="AL7" />
+        <result property="al8" column="AL8" />
+        <result property="al9" column="AL9" />
+        <result property="al10" column="AL10" />
+        <result property="al11" column="AL11" />
+        <result property="al12" column="AL12" />
+        <result property="al13" column="AL13" />
+        <result property="al14" column="AL14" />
+        <result property="al15" column="AL15" />
+        <result property="al16" column="AL16" />
+        <result property="al17" column="AL17" />
+        <result property="al18" column="AL18" />
+        <result property="optionMenu" column="OPTION_MENU" />
+        <result property="cate1" column="CATE1" />
+        <result property="cate2" column="CATE2" />
+        <result property="newYn" column="NEW" />
+    </resultMap>
+
+    <!-- 카테고리 리스트 -->
+    <select id="getGoodsCategory" resultType="goods_category">
+        SELECT IDX, PARENT, NAME FROM TB_GOODS_CATEGORY
+        WHERE PARENT = #{parent} AND USEYN = 'Y'
+        ORDER BY SORT ASC, IDX ASC
+    </select>
+
+    <!-- 카테고리 상세정보 -->
+    <select id="getGoodsCategoryInfo" resultType="goods_category">
+      SELECT IDX, PARENT, NAME FROM TB_GOODS_CATEGORY
+      WHERE IDX = #{idx}
+    </select>
+
+    <!-- 메뉴 리스트 -->
+    <select id="getGoodsList" resultMap="simpleGoodsResult">
+        SELECT * FROM (
+            SELECT
+                A.IDX, A.TITLE, A.PRICE, A.CATE1, A.CATE2,
+                (
+                    SELECT CONCAT(IMAGE_PATH, IMAGE_NAME)
+                    FROM TB_GOODS_IMAGE_MAP
+                    WHERE GOODS_IDX = A.IDX AND TYPE='00' AND USE_FLAG='Y'
+                    ORDER BY SORT ASC LIMIT 1
+                ) AS IMAGE_PATH,
+                CASE WHEN (SELECT COUNT(1) FROM TB_CATEGORY_MAP WHERE GOODS_IDX = A.IDX AND CATEGORY_IDX = 14 AND TYPE = '00') > 0 THEN 'Y' ELSE 'N' END AS NEW,
+                IFNULL(B.SORT, 0) SORT
+            FROM TB_GOODS A LEFT JOIN TB_GOODS_SORT B ON A.IDX = B.GOODS AND B.TYPE = 'C'
+            WHERE USE_YN = 'Y' AND CATE1 = #{cate1}
+              <if test="cate2 != null and cate2 > 0">
+                AND CATE2 = #{cate2}
+              </if>
+        ) TBL
+        ORDER BY SORT ASC, IDX DESC
+    </select>
+
+    <!-- 메뉴 상세 -->
+    <select id="getGoodsDetail" resultMap="simpleGoodsResult">
+        SELECT
+          IDX, TITLE, SUB_TITLE, PRICE, SIDEDISH_COUNT, SERIES, CALORIE, AL1, AL2, AL3, AL4, AL5, AL6, AL7, AL8, AL9, AL10, AL11, AL12, AL13, AL14, AL15, AL16, AL17, AL18,
+          OPTION_MENU, CATE1, CATE2
+        FROM TB_GOODS
+        WHERE USE_YN = 'Y' AND IDX = #{idx}
+    </select>
+
+    <!-- 메뉴 상세 이미지 -->
+    <select id="getGoodsDetailImage" resultType="hashmap">
+        SELECT CONCAT(IMAGE_PATH, IMAGE_NAME) AS DETAIL_IMAGE
+        FROM TB_GOODS_IMAGE_MAP
+        WHERE TYPE='01' AND USE_FLAG='Y' AND GOODS_IDX = #{idx}
+        ORDER BY SORT ASC
+    </select>
+
+    <!-- 추가가능한 메뉴 -->
+    <select id="getGoodsSub" resultType="goods_sub">
+        SELECT IDX, TITLE, PRICE FROM TB_GOODS_SUB WHERE IDX IN ( ${idxs} )
+    </select>
+
+    <!-- 원산지 메뉴 -->
+    <select id="getGoodsOrigin" resultType="goods_origin">
+        SELECT IDX, TITLE, ORIGIN FROM TB_GOODS_ORIGIN WHERE IDX = #{idx} ORDER BY ORIGIN_IDX ASC
+    </select>
+
+    <!-- 키워드 리스트 -->
+    <select id="getGoodsKeyword" resultMap="simpleKeywordResult">
+        SELECT IDX, KEYWORD FROM TB_GOODS_KEYWORD
+        WHERE USEYN = 'Y'
+        <if test="recomm != null and recomm != ''">
+            AND RECOMM = #{recomm}
+        </if>
+        ORDER BY SORT ASC, IDX ASC
+    </select>
+
+    <!-- 키워드별 노출 메뉴 리스트 -->
+    <select id="getGoodsKeywordList" resultMap="simpleGoodsResult">
+        SELECT * FROM (
+            SELECT
+              A.IDX, A.TITLE, A.PRICE,
+              (
+                SELECT CONCAT(IMAGE_PATH, IMAGE_NAME)
+                FROM TB_GOODS_IMAGE_MAP
+                WHERE GOODS_IDX = A.IDX AND TYPE='00' AND USE_FLAG='Y'
+                ORDER BY SORT ASC LIMIT 1
+              ) AS IMAGE_PATH,
+              CASE WHEN (SELECT COUNT(1) FROM TB_CATEGORY_MAP WHERE GOODS_IDX = A.IDX AND CATEGORY_IDX = 14 AND TYPE = '00') > 0 THEN 'Y' ELSE 'N' END AS NEW,
+              IFNULL(S.SORT, 0) SORT
+            FROM TB_GOODS_KEYWORD_MAP B LEFT JOIN TB_GOODS A ON B.GOODS_IDX = A.IDX LEFT JOIN TB_GOODS_SORT S ON A.IDX = S.GOODS AND S.TYPE = 'K'
+            WHERE B.KEYWORD_IDX = #{idx} AND A.USE_YN = 'Y'
+        ) TBL
+        ORDER BY SORT ASC, IDX DESC
+    </select>
+</mapper>

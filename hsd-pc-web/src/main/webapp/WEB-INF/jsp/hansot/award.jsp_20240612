@@ -1,0 +1,276 @@
+<html>
+<head>
+    <title>수상</title>
+
+    <link rel="stylesheet" type="text/css" href="${cp}/assets/css/ui.hansot.css"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111772169-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111772169-1');
+    </script>
+
+    <!-- Global site tag (gtag.js) - AdWords: 864658366 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-864658366"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-864658366');
+    </script>
+
+    <!-- kakao pixcel -->
+    <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+    <script type="text/javascript">
+        kakaoPixel('5575357302971415199').pageView();
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '241666853119648');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=241666853119648&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+</head>
+<body>
+<div class="content hansot">
+    <section class="award">
+        <!-- 수상 -->
+        <div class="award_wrap tab_st01">
+            <!-- title -->
+            <div class="ontitle">
+                <h2 class="h2_tit h2_02 mo_version">연혁·수상</h2>
+                <div class="tab_wrap mo_version">
+                    <ul class="tab_menu">
+                        <li><a href="${cp}/hansot/history">연혁</a></li>
+                        <li class="active"><a href="#none">수상</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- //title -->
+            <!-- award_list -->
+            <div class="award_list_wrap mo_tr">
+                <!-- 2018 -->
+                <div class="year_wrap y_2018">
+                    <h3 class="h3_tit fz_02">2018</h3>
+                    <ul>
+                        <li class="award_18">
+                            <div>
+                                <p class="award_txt fz_03">고객사랑 브랜드 대상</p>
+                                <p class="award_tit fz_02">4년 연속 수상</p>
+                                <span>중앙일보 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_17">
+                            <div>
+                                <p class="award_txt fz_03">소비자에게 신뢰받는 착한브랜드 대상</p>
+                                <p class="award_tit fz_02">수상</p>
+                                <span>동아일보 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_16">
+                            <div>
+                                <p class="award_txt fz_03">국가브랜드 대상</p>
+                                <p class="award_tit fz_02">수상</p>
+                                <span>조선일보 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_15">
+                            <div>
+                                <p class="award_txt fz_03">한국의 가장 사랑받는 브랜드 대상</p>
+                                <p class="award_tit fz_02">7년 연속 수상</p>
+                                <span>조선비즈 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_14">
+                            <div>
+                                <p class="award_txt fz_03">2018 100대 프랜차이즈</p>
+                                <p class="award_tit fz_02">7년 연속 수상</p>
+                                <span>매일경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_13">
+                            <div>
+                                <p class="award_txt fz_03">대한민국 명품브랜드 대상</p>
+                                <p class="award_tit fz_02">3년 연속 수상</p>
+                                <span>한국경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_12">
+                            <div>
+                                <p class="award_txt fz_03">소비자선정 최고의 브랜드 대상</p>
+                                <p class="award_tit fz_02">3년 연속 수상</p>
+                                <span>중앙일보 주최</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //2018 -->
+                <!-- 2017 -->
+                <div class="year_wrap y_2017">
+                    <h3 class="h3_tit fz_02">2017</h3>
+                    <ul>
+                        <li class="award_10">
+                            <div>
+                                <p class="award_txt fz_03">웹어워드코리아대상</p>
+                                <p class="award_tit fz_02">수상</p>
+                                <span>한국인터넷전문가협회 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_11">
+                            <div>
+                                <p class="award_txt fz_03">스타브랜드대상</p>
+                                <p class="award_tit fz_02">4년 연속 수상</p>
+                                <span>매일경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_01">
+                            <div>
+                                <p class="award_txt fz_03">2017 100대 프랜차이즈</p>
+                                <p class="award_tit fz_02">6년 연속 수상</p>
+                                <span>매일경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_02">
+                            <div>
+                                <p class="award_txt fz_03">한국의 가장 사랑받는 브랜드 대상</p>
+                                <p class="award_tit fz_02">6년 연속 수상</p>
+                                <span>조선비즈 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_03">
+                            <div>
+                                <p class="award_txt fz_03">고객사랑 브랜드 대상</p>
+                                <p class="award_tit fz_02">3년 연속 수상</p>
+                                <span>중앙일보, 이코노미스트 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_04">
+                            <div>
+                                <p class="award_txt fz_03">한국 소비자 만족지수 1위</p>
+                                <p class="award_tit fz_02">3년 연속 수상</p>
+                                <span>한경비즈니스 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_05">
+                            <div>
+                                <p class="award_txt fz_03">대한민국 명품브랜드 대상</p>
+                                <p class="award_tit fz_02">2년 연속 수상</p>
+                                <span>한국경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_06">
+                            <div>
+                                <p class="award_txt fz_03">소비자선정 최고의 브랜드 대상</p>
+                                <p class="award_tit fz_02">2년 연속 수상</p>
+                                <span>중앙일보 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_08">
+                            <div>
+                                <p class="award_txt fz_03">소비자의 선택 최고의 브랜드 대상</p>
+                                <p class="award_tit fz_02">3년 연속 수상</p>
+                                <span>중앙일보 주최</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //2017 -->
+                <!-- 2016 -->
+                <div class="year_wrap y_2016">
+                    <h3 class="h3_tit fz_02">2016</h3>
+                    <ul>
+                        <li class="award_06">
+                            <div>
+                                <p class="award_txt fz_03">소비자선정 최고의 브랜드 대상</p>
+                                <p class="award_tit fz_02">수상</p>
+                                <span>중앙일보 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_02">
+                            <div>
+                                <p class="award_txt fz_03">한국의 가장 사랑받는 브랜드 대상</p>
+                                <p class="award_tit fz_02">5년 연속 수상</p>
+                                <span>조선비즈 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_05">
+                            <div>
+                                <p class="award_txt fz_03">대한민국 명품브랜드 대상</p>
+                                <p class="award_tit fz_02">수상</p>
+                                <span>한국경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_07">
+                            <div>
+                                <p class="award_txt fz_03">고객 감동 브랜드 지수 1위</p>
+                                <p class="award_tit fz_02">수상</p>
+                                <span>한국브랜드 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_08">
+                            <div>
+                                <p class="award_txt fz_03">소비자의 선택 최고의 브랜드 대상</p>
+                                <p class="award_tit fz_02">2년 연속 수상</p>
+                                <span>중앙일보 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_01">
+                            <div>
+                                <p class="award_txt fz_03">2016년 100대 프랜차이즈</p>
+                                <p class="award_tit fz_02">5년 연속 수상</p>
+                                <span>매일경제 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_04">
+                            <div>
+                                <p class="award_txt fz_03">한국 소비자 만족지수 1위</p>
+                                <p class="award_tit fz_02">2년 연속 수상</p>
+                                <span>한경비즈니스 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_03">
+                            <div>
+                                <p class="award_txt fz_03">고객사랑 브랜드 대상</p>
+                                <p class="award_tit fz_02">2년 연속 수상</p>
+                                <span>중앙일보, 이코노미스트 주최</span>
+                            </div>
+                        </li>
+                        <li class="award_09">
+                            <div>
+                                <p class="award_txt fz_03">스타브랜드 대상</p>
+                                <p class="award_tit fz_02">3년 연속 수상</p>
+                                <span>매일경제 주최</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //2016 -->
+            </div>
+            <!-- //award_list -->
+        </div>
+        <!-- //수상 -->
+    </section>
+</div>
+
+<jsp:include page="/WEB-INF/jsp/more/franchise_more.jsp" />
+
+</body>
+</html>

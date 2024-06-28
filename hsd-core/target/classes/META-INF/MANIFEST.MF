@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: user
+Build-Jdk: 17.0.6
+Implementation-Title: hsd-core
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: kr.co.hsd
+Implementation-Vendor: Pivotal Software, Inc.
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.store.repository.StoreRepository">
+    <resultMap id="simpleStoreResult" type="store">
+        <id property="idx" column="IDX" />
+        <result property="name" column="NAME" />
+        <result property="storeId" column="STORE_ID" />
+        <result property="phoneNumber" column="PHONE_NUMBER" />
+        <result property="sidoCode" column="SIDO_CODE" />
+        <result property="gungooCode" column="GUNGOO_CODE" />
+        <result property="address" column="ADDRESS" />
+        <result property="seatYn" column="SEAT_YN" />
+        <result property="parkingYn" column="PARKING_YN" />
+        <result property="lat" column="LATITUDE" />
+        <result property="lng" column="LONGITUDE" />
+        <result property="businessHour" column="BUSINESS_HOUR" />
+        <result property="closeDttmS" column="CLOSE_DTTM_S" />
+        <result property="closeDttmE" column="CLOSE_DTTM_E" />
+
+        <result property="openDt" column="OPENDT" />
+        <result property="openShowYn" column="OPEN_SHOW_YN" />
+        <result property="openEvent" column="OPEN_EVENT" />
+    </resultMap>
+
+    <!-- 시도/군구로 매장검색 -->
+    <select id="getSimpleList" resultMap="simpleStoreResult">
+        SELECT
+          IDX, NAME
+        FROM TB_STORE
+        WHERE SIDO_CODE = #{sido} AND GUNGOO_CODE = #{gungoo} AND IS_ACTIVE='Y'
+        ORDER BY NAME ASC
+    </select>
+
+    <!-- 시도/군구/지점명으로 매장검색 : 매칭된것이 우선순위 위로가도록처리 -->
+    <select id="getList" resultMap="simpleStoreResult">
+        SELECT
+          IDX, NAME, LATITUDE, LONGITUDE
+        FROM TB_STORE
+        WHERE IS_ACTIVE='Y'
+        ORDER BY
+          <if test="storeName != null and storeName != ''">
+            CASE WHEN INSTR(NAME, #{storeName}) > 0 THEN INSTR(NAME, #{storeName}) ELSE 100 END ASC,
+          </if>
+          <if test="sido != null and sido != ''">
+              CASE WHEN SIDO_CODE = #{sido} THEN 0 ELSE 1 END ASC,
+          </if>
+          <if test="gungoo != null and gungoo != ''">
+            CASE WHEN GUNGOO_CODE = #{gungoo} THEN 0 ELSE 1 END ASC,
+          </if>
+          IDX ASC
+    </select>
+
+    <!-- 검색 키워드로 검색-->
+    <select id="getSearchedStore" resultMap="simpleStoreResult">
+        SELECT
+        *
+        FROM TB_STORE
+        WHERE IS_ACTIVE='Y'
+        <if test="sido != null and sido != ''">
+            AND SIDO_CODE = #{sido}
+        </if>
+        <if test="gungoo != null and gungoo != ''">
+            AND GUNGOO_CODE = #{gungoo}
+        </if>
+        <if test="searchKeyword != null and searchKeyword != ''">
+            AND (NAME LIKE CONCAT('%',#{searchKeyword},'%')
+            OR ADDRESS LIKE CONCAT('%',#{searchKeyword},'%'))
+        </if>
+        <include refid="Common.limit"/>
+    </select>
+
+    <!-- 검색 키워드로 검색-->
+    <select id="getSearchedStoreWithoutPaging" resultMap="simpleStoreResult">
+        SELECT
+        *
+        FROM TB_STORE
+        WHERE IS_ACTIVE='Y'
+        <if test="sido != null and sido != ''">
+            AND SIDO_CODE = #{sido}
+        </if>
+        <if test="gungoo != null and gungoo != ''">
+            AND GUNGOO_CODE = #{gungoo}
+        </if>
+        <if test="searchKeyword != null and searchKeyword != ''">
+            AND (NAME LIKE CONCAT('%',#{searchKeyword},'%')
+            OR ADDRESS LIKE CONCAT('%',#{searchKeyword},'%'))
+        </if>
+    </select>
+
+    <!-- 매장상세 -->
+    <select id="getDetail" resultMap="simpleStoreResult">
+        SELECT
+          IDX, NAME, STORE_ID, PHONE_NUMBER, SIDO_CODE, GUNGOO_CODE, ADDRESS, SEAT_YN, PARKING_YN, LATITUDE, LONGITUDE, BUSINESS_HOUR, CLOSE_DTTM_S, CLOSE_DTTM_E
+        FROM TB_STORE
+        WHERE IS_ACTIVE='Y' AND IDX = #{idx}
+    </select>
+
+    <!-- 신규 가맹점 전체갯수 -->
+    <select id="getNewStoreCnt" resultType="int">
+        SELECT
+         COUNT(1) CNT
+        FROM TB_STORE
+        WHERE IS_ACTIVE='Y' AND OPEN_SHOW_YN='Y'
+    </select>
+
+    <!-- 가맹점 검색결과 전체갯수 -->
+    <select id="getSearchStoreCnt" resultType="int">
+        SELECT
+        COUNT(1) CNT
+        FROM TB_STORE
+        WHERE IS_ACTIVE='Y'
+        <if test="sido != null and sido != ''">
+            AND SIDO_CODE = #{sido}
+        </if>
+        <if test="gungoo != null and gungoo != ''">
+            AND GUNGOO_CODE = #{gungoo}
+        </if>
+        <if test="searchKeyword != null and searchKeyword != ''">
+            AND NAME LIKE CONCAT('%',#{searchKeyword},'%')
+            OR ADDRESS LIKE CONCAT('%',#{searchKeyword},'%')
+        </if>
+    </select>
+
+    <!-- 신규 가맹점 -->
+    <select id="getNewStore" resultMap="simpleStoreResult">
+        SELECT
+          IDX, NAME, PHONE_NUMBER, ADDRESS, OPENDT, OPEN_SHOW_YN,
+          (SELECT TITLE FROM TB_BOARD WHERE BID='offevent' AND STORE=A.IDX AND SHOWYN='Y' AND (DATE(NOW()) BETWEEN DATE(STARTDT) AND DATE(ENDDT))) OPEN_EVENT
+        FROM TB_STORE A
+        WHERE IS_ACTIVE='Y' AND OPEN_SHOW_YN='Y'
+        ORDER BY OPENDT DESC, IDX DESC
+        <include refid="Common.limit"/>
+    </select>
+</mapper>

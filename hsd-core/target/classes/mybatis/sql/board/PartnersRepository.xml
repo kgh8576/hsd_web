@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.board.repository.PartnersRepository">
+
+    <insert id="insertBoard">
+        INSERT INTO TB_PARTNERS (
+          COMPANY, ESTABLISHDT, CEO, COMPANY_TYPE, COMPANY_NUM, COMPANY_REPORT_NUM, COMPANY_SECTOR, COMPANY_CATE, COMPANY_SALES,
+          COMPANY_CAPITAL, COMPANY_MANAGER, COMPANY_TEL, COMPANY_FAX, COMPANY_EMAIL, HOMEPAGE, COMPANY_ADDR, FACTORY_ADDR,
+          COMPANY_PLANT1, COMPANY_PLANT2, COMPANY_PLANT3, COMPANY_PLANT4, EMPLOYEE_COUNT, HACCPYN, PRODUCT_NAME, PRODUCT_DESC, COMPANY_DESC, REGDT,
+          MARKETING_AGREE, STORE_AGREE
+        ) VALUES (
+          #{company}, #{establishdt}, #{ceo}, #{companyType}, #{companyNum}, #{companyReportNum}, #{companySector}, #{companyCate}, #{companySales},
+          #{companyCapital}, #{companyManager}, #{companyTel}, #{companyFax}, #{companyEmail}, #{homepage}, #{companyAddr}, #{factoryAddr},
+          #{companyPlant1}, #{companyPlant2}, #{companyPlant3}, #{companyPlant4}, #{employeeCount}, #{haccpYn}, #{productName}, #{productDesc}, #{companyDesc}, NOW(),
+          #{marketing_agree}, #{store_agree}
+        )
+    </insert>
+</mapper>

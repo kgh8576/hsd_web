@@ -1,0 +1,38 @@
+# ===================================================================
+# Spring Boot configuration for the "local" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+spring:
+    profiles:
+        active: local
+
+wylie:
+    datasource:
+        default:
+            driver-class-name: com.mysql.jdbc.Driver
+#            url: jdbc:mysql://61.252.139.83:3306/hsd
+#            username: hsd
+#            password: hsd!%**
+            url: jdbc:mysql://13.125.57.140:3306/hansot
+            username: hansot_user
+            password: hansot_user!230
+            maximum-pool-size: 5
+    site:
+            domain: http://localhost:8070
+            url-pc: http://localhost:8070
+            viewMode: desktop
+    file-upload:
+            filepath: http://localhost:8080/data
+            location: /data/attach/hansot
+    siren-cert:
+            id: SCPO001
+            srvNoForJoin: '011002'
+            srvNoForLogin: '011004'

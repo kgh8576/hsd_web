@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.common.repository.CodeRepository">
+    <resultMap id="simpleCodeResult" type="code">
+        <id property="idx" column="IDX" />
+        <result property="cCode" column="CCODE" />
+        <result property="cVal" column="CVAL" />
+    </resultMap>
+
+    <!-- 코드 -->
+    <select id="getCode" resultMap="simpleCodeResult">
+        SELECT
+          IDX, CVAL
+        FROM TB_CODE
+        WHERE CCODE = #{cCode} AND CUSE = 'Y'
+        ORDER BY CSORT ASC
+    </select>
+</mapper>

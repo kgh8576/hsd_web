@@ -1,0 +1,6 @@
+<sitemesh>
+    <mapping path="/*" decorator="/WEB-INF/layout/default.jsp" />
+
+    <mapping path="/join/auth_*" exclue="true" />
+    <mapping path="*/api" exclue="true" />
+</sitemesh>

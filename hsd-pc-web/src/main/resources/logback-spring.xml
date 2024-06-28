@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <logger name="kr.co.hsd" level="@logback.loglevel@"/>
+    <springProfile name="dev, prod, local">
+        <logger name="kr.co.hsd.core" level="TRACE"/>
+    </springProfile>
+
+    <logger name="jdbc.sqlonly"        level="INFO"/>
+    <logger name="jdbc.sqltiming"      level="INFO"/>
+    <logger name="jdbc.audit"          level="INFO"/>
+    <logger name="jdbc.resultset"      level="INFO"/>
+    <logger name="jdbc.resultsettable" level="INFO"/>
+    <logger name="jdbc.connection"     level="INFO"/>
+    <logger name="log4jdbc.debug" level="INFO"/>
+    <logger name="org.mybatis.spring.SqlSessionUtils" level="INFO"/>
+
+    <logger name="javax.activation" level="INFO"/>
+    <logger name="javax.mail" level="INFO"/>
+    <logger name="javax.xml.bind" level="INFO"/>
+    <logger name="ch.qos.logback" level="INFO"/>
+    <logger name="com.codahale.metrics" level="INFO"/>
+    <logger name="com.ryantenney" level="INFO"/>
+    <logger name="com.sun.xml.internal.bind" level="INFO"/>
+    <logger name="com.zaxxer" level="INFO"/>
+    <logger name="io.undertow" level="INFO"/>
+    <logger name="net.sf.ehcache" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.apache.catalina.startup.DigesterFactory" level="INFO"/>
+    <logger name="org.bson" level="INFO"/>
+    <logger name="org.elasticsearch" level="INFO"/>
+    <logger name="org.hibernate.validator" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.hibernate.ejb.HibernatePersistence" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.springframework.security" level="INFO"/>
+    <logger name="org.springframework.cache" level="INFO"/>
+    <logger name="org.thymeleaf" level="INFO"/>
+    <logger name="org.xnio" level="INFO"/>
+    <logger name="springfox" level="INFO"/>
+    <logger name="sun.rmi" level="INFO"/>
+    <logger name="liquibase" level="INFO"/>
+    <logger name="sun.rmi.transport" level="INFO"/>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <springProfile name="dev">
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${catalina.home}/logs/hsd-web-pc.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${catalina.home}/logs/hsd-web.log.%d{yyyy-MM-dd}</fileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <charset>UTF-8</charset>
+                <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            </encoder>
+        </appender>
+
+        <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+            <queueSize>1024</queueSize>
+            <appender-ref ref="FILE"/>
+        </appender>
+    </springProfile>
+
+    <springProfile name="prod">
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${catalina.home}/logs/hsd-web-pc.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${catalina.home}/logs/hsd-web.log.%d{yyyy-MM-dd}</fileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <charset>UTF-8</charset>
+                <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            </encoder>
+        </appender>
+
+        <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+            <queueSize>1024</queueSize>
+            <appender-ref ref="FILE"/>
+        </appender>
+    </springProfile>
+
+    <springProfile name="local">
+        <root level="@logback.loglevel@">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="@logback.loglevel@">
+            <appender-ref ref="ASYNC_FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="@logback.loglevel@">
+            <appender-ref ref="ASYNC_FILE"/>
+        </root>
+    </springProfile>
+</configuration>

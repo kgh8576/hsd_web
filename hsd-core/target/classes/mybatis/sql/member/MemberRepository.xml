@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.member.repository.MemberRepository">
+    <resultMap id="simpleMemberResult" type="member">
+        <id property="idx" column="idx"/>
+        <result property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="email" column="EMAIL"/>
+        <result property="mobile_phone" column="MOBILE_PHONE"/>
+        <result property="status" column="STATUS"/>
+        <result property="agree_personal" column="AGREE_PERSONAL"/>
+        <result property="agree_use" column="AGREE_USE"/>
+        <result property="agree_3rd" column="AGREE_3RD"/>
+        <result property="sms_reception_flag" column="SMS_RECEPTION_FLAG"/>
+        <result property="email_reception_flag" column="EMAIL_RECEPTION_FLAG"/>
+        <result property="certification_flag" column="CERTIFICATION_FLAG"/>
+        <result property="mobile_certification_flag" column="MOBILE_CERTIFICATION_FLAG"/>
+        <result property="last_pw_upd_dttm" column="LAST_PW_UPD_DTTM"/>
+        <result property="month_pw_upd_dttm" column="MONTH_PW_UPD_DTTM"/>
+        <result property="quit_reason" column="QUIT_REASON"/>
+        <result property="quit_flag" column="QUIT_FLAG"/>
+        <result property="quit_dttm" column="QUIT_DTTM"/>
+        <result property="reg_dttm" column="REG_DTTM"/>
+        <result property="upd_dttm" column="UPD_DTTM"/>
+        <result property="join_path" column="JOIN_PATH"/>
+    </resultMap>
+
+    <!-- 로그인, 아이디 중복확인 -->
+    <select id="getMemberByAccountId" resultMap="simpleMemberResult">
+        /* kr.co.hsd.core.member.repository.MemberRepository.getMemberByAccountId */
+        SELECT A.*
+        FROM	TB_MEMBER A
+        WHERE	A.ID = #{id}
+          <if test="used != null and used == false">
+          AND A.STATUS IN ('01','02', '98') AND A.QUIT_FLAG = 'N'
+          </if>
+    </select>
+
+    <!-- 회원상세정보 -->
+    <select id="getMember" resultMap="simpleMemberResult">
+        /* kr.co.hsd.core.member.repository.MemberRepository.getMember */
+        SELECT A.*
+        FROM	TB_MEMBER A
+        WHERE	A.IDX = #{currentMemId}
+    </select>
+
+    <!-- 회원 등록 -->
+    <insert id="insertMember">
+        /* kr.co.hsd.core.member.repository.MemberRepository.insertMember */
+        INSERT INTO TB_MEMBER (
+            ID, NAME, PASSWORD, EMAIL, MOBILE_PHONE, DI, MOBILE_CERTIFICATION_REQ_NUM, STATUS, AGREE_PERSONAL, AGREE_USE, AGREE_3RD,
+            SMS_RECEPTION_FLAG, EMAIL_RECEPTION_FLAG, MOBILE_CERTIFICATION_FLAG,
+            LAST_PW_UPD_DTTM, REG_DTTM, JOIN_PATH
+        ) VALUES (
+            #{id}, #{name}, #{password}, #{email}, #{mobile_phone}, #{di}, #{mobile_certification_req_num}, #{status}, #{agree_personal}, #{agree_use}, #{agree_3rd},
+            #{sms_reception_flag}, #{email_reception_flag}, #{mobile_certification_flag},
+            NOW(), NOW(), #{join_path}
+        )
+    </insert>
+
+    <!-- 회원정보 수정 -->
+    <update id="updateMember">
+        /* kr.co.hsd.core.member.repository.MemberRepository.updateMember */
+        UPDATE	TB_MEMBER
+        <trim prefix="SET" suffixOverrides=",">
+            EMAIL = #{email},
+            EMAIL_RECEPTION_FLAG = #{email_reception_flag},
+            SMS_RECEPTION_FLAG = #{sms_reception_flag},
+            UPD_DTTM = NOW()
+        </trim>
+        WHERE IDX = #{currentMemId}
+    </update>
+
+    <!-- 회원비밀번호 수정 -->
+    <update id="updateCurrentMemberPassword">
+        /* kr.co.hsd.core.member.repository.MemberRepository.updateCurrentMemberPassword */
+        UPDATE TB_MEMBER
+        SET PASSWORD = #{NewPassword}, LAST_PW_UPD_DTTM = NOW(), UPD_DTTM = NOW()
+        WHERE IDX = #{currentMemId}
+    </update>
+
+    <!-- 회원탈퇴 처리 -->
+    <update id="updateMemberAsDelete">
+        /* kr.co.hsd.core.member.repository.MemberRepository.updateMemberAsDelete */
+        UPDATE	TB_MEMBER
+        SET	STATUS = '99',
+          QUIT_FLAG = 'Y',
+          QUIT_DTTM = NOW()
+        WHERE IDX = #{currentMemId}
+    </update>
+
+    <!-- 회원 최종 접속일 업데이트 -->
+    <insert id="updateMemberAsLastLoginDt">
+        /* kr.co.hsd.core.member.repository.MemberRepository.updateMemberAsLastLoginDt */
+        INSERT INTO TB_MEMBER_LOGIN (ID, REG_DTTM) VALUES (#{id}, NOW())
+    </insert>
+
+    <!-- 회원 최종 접속일 업데이트 -->
+    <update id="updateMemberLastLoginTime">
+        UPDATE TB_MEMBER
+        SET LAST_LOGIN_DTTM = NOW()
+        WHERE IDX = #{idx}
+    </update>
+
+    <!-- 회원 가입여부 확인 -->
+    <select id="getMemberFind" resultMap="simpleMemberResult">
+      /* kr.co.hsd.core.member.repository.MemberRepository.getMemberFind */
+      SELECT *
+      FROM TB_MEMBER
+      WHERE NAME = #{name} AND MOBILE_PHONE = #{mobile_phone} AND STATUS IN ('01','02') AND QUIT_FLAG = 'N'
+    </select>
+
+    <!-- 아이디 찾기 -->
+    <select id="getFindId" resultMap="simpleMemberResult">
+        SELECT IDX, ID, NAME
+        FROM TB_MEMBER
+        WHERE NAME = #{name} AND EMAIL = #{email} AND STATUS IN ('01','02') AND QUIT_FLAG = 'N'
+    </select>
+
+    <!-- 패스워드 찾기 -->
+    <select id="getFindPw" resultMap="simpleMemberResult">
+       SELECT IDX, ID, NAME, MOBILE_PHONE
+       FROM TB_MEMBER
+       WHERE ID = #{id} AND NAME = #{name} AND STATUS IN ('01','02') AND QUIT_FLAG = 'N'
+    </select>
+
+    <!-- 비밀번호 최종 변경기간체크 -->
+    <select id="getPwChange" resultType="Date">
+        SELECT
+            CASE
+                WHEN MONTH_PW_UPD_DTTM IS NOT NULL THEN MONTH_PW_UPD_DTTM
+                WHEN LAST_PW_UPD_DTTM IS NOT NULL THEN DATE_ADD(LAST_PW_UPD_DTTM, INTERVAL 3 MONTH)
+                ELSE DATE_ADD(REG_DTTM, INTERVAL 3 MONTH)
+            END AS PW_LAST_DT
+        FROM TB_MEMBER
+        WHERE ID = #{id};
+    </select>
+
+    <!-- 비밀번호 변경 기간 연장 -->
+    <update id="setPwChangeAfter">
+        UPDATE TB_MEMBER SET MONTH_PW_UPD_DTTM = NOW() + INTERVAL 3 MONTH
+        WHERE IDX = #{currentMemId}
+    </update>
+
+    <!-- 인증정보 업데이트 -->
+    <update id="setAuthUpdate">
+        UPDATE TB_MEMBER SET
+            NAME = #{name},
+            MOBILE_PHONE = #{mobile_phone},
+            DI = #{di},
+            MOBILE_CERTIFICATION_REQ_NUM = #{mobile_certification_req_num}
+        WHERE IDX = #{currentMemId}
+    </update>
+
+    <!-- 비밀번호 변경횟수 증가 -->
+    <update id="increaseWrongPwCnt">
+        UPDATE TB_MEMBER SET WRONG_PW_CNT = WRONG_PW_CNT + 1
+        WHERE ID = #{username}
+    </update>
+
+    <!-- 비밀번호 변경횟수 리셋 -->
+    <update id="resetWrongPwCnt">
+        UPDATE TB_MEMBER SET WRONG_PW_CNT = 0
+        WHERE ID = #{username}
+    </update>
+
+    <!-- 비밀번호 변경횟수 조회 -->
+    <select id="getWrongPwCnt" resultType="int">
+       SELECT WRONG_PW_CNT
+       FROM TB_MEMBER
+       WHERE ID = #{id}
+    </select>
+
+    <!-- 이름과 전번으로 멤버찾기 -->
+    <select id="findByMember" resultMap="simpleMemberResult">
+       SELECT *
+       FROM TB_MEMBER
+       WHERE NAME = #{name} AND MOBILE_PHONE = #{mobile_phone} AND STATUS IN ('01','02') AND QUIT_FLAG = 'N'
+    </select>
+
+    <!-- 휴면전환 -->
+    <update id="awakeSleepMember">
+        UPDATE	TB_MEMBER
+        SET	STATUS = #{status},
+          SLEEP_DTTM = NOW()
+        WHERE MOBILE_PHONE = #{mobile_phone}
+    </update>
+</mapper>

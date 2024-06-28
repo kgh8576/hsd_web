@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.common.repository.PopupRepository">
+
+    <resultMap id="simplePopupResult" type="popup">
+        <id		property="idx" column="IDX" />
+        <result property="imagePath" column="IMAGE_PATH" />
+        <result property="link" column="LINK" />
+        <result property="target" column="TARGET" />
+    </resultMap>
+
+    <select id="getPopupList" resultMap="simplePopupResult">
+        SELECT IDX, IMAGE_PATH, LINK, TARGET FROM TB_POPUP
+        WHERE (DATE(NOW()) BETWEEN DATE(SDATE) AND DATE(EDATE))
+        ORDER BY SORT ASC, IDX DESC
+    </select>
+</mapper>

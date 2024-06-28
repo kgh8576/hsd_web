@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>kr.co.hsd</groupId>
+    <artifactId>hsd-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>hsd-parent</name>
+
+    <modules>
+        <module>core</module>
+        <module>pc-web</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.6.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+<!--    <distributionManagement>
+        <repository>
+            <id>hansot-release</id>
+            <url>http://nexus.4thevision.com/repository/hansot-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>hansot-snapshot</id>
+            <url>http://nexus.4thevision.com/repository/hansot-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>hansot</id>
+            <url>http://nexus.4thevision.com/repository/hansot</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>hansot</id>
+            <url>http://nexus.4thevision.com/repository/hansot</url>
+        </pluginRepository>
+    </pluginRepositories>-->
+
+    <prerequisites>
+        <maven>3.0.0</maven>
+    </prerequisites>
+
+    <properties>
+        <spring.boot.legacy.version>1.1.0.RELEASE</spring.boot.legacy.version>
+        <!--<servlet.version>2.5</servlet.version>
+        <jsp.version>2.1</jsp.version>-->
+        <lombok.version>1.16.10</lombok.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+        <poi.builder.version>1.0.1</poi.builder.version>
+        <tika.version>1.8</tika.version>
+        <oracle.version>11.2.0.3</oracle.version>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+			<dependency>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-starter-parent</artifactId>
+	            <version>1.3.5.RELEASE</version>
+	            <scope>import</scope>
+	            <type>pom</type>
+        	</dependency> 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-legacy</artifactId>
+                <version>${spring.boot.legacy.version}</version>
+            </dependency>
+
+<!--            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp.version}</version>
+                <scope>provided</scope>
+            </dependency>-->
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.38</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.subtlelib</groupId>
+                <artifactId>poi.builder</artifactId>
+                <version>${poi.builder.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

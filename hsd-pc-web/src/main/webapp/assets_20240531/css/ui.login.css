@@ -1,0 +1,142 @@
+﻿@charset "utf-8";
+/**************************** s:: 공통 *************************/
+.content.login {background-color: #fff;}
+.content.login.bg_none {background-color: inherit;}
+/*버튼*/
+.btn_wrap .btn + .btn.btn_login {margin-top:30px;}
+
+/**************************** e:: 공통 *************************/
+/*login_page 공통*/
+.login .login_page {position:relative; overflow: hidden; height:auto;}
+.login .login_page .login_wrap, 
+.login .login_page .join_select {height:560px; background-color: #fff; box-sizing: border-box; vertical-align: top;}
+/*login_page*/
+.login .login_page .login_wrap {position:relative; width:57.5%; margin:0 4.5% 0 0;  padding:100px 0 60px 0; box-sizing: border-box;}
+.login .login_page .login_wrap:before {content: ''; width:100%; height:6px; background-color:#f2c000; display:inline-block; position:absolute; left:0; top:0;}
+.login .login_page .login_wrap .login_formcont {width:473px; margin:0 auto;}
+.login .login_page .login_wrap h2.h2_tit {position:relative;}
+.login .login_page .login_wrap h2.h2_tit:before {content: ''; width:27px; height:32px; background: url(../images/login/icon_login.png) left top no-repeat; background-size: 27px 32px; margin:0 20px -2px 0; display:inline-block;}
+
+.login .login_page .login_wrap .area_login {margin-top:50px;}
+.login .login_page .login_wrap .in_box .form {width:100%;}
+.login .login_page .login_wrap .in_box .form input {width:100%;}
+.area_check {position:relative; width:100%; height:43px;}
+.area_check span {display:block; float:left; width:47%; margin-top:20px;}
+.area_check span.find_idpw {float:right; text-align:right;} 
+.area_check span.find_idpw > a {color:#5c5953; background: url(../images/common/icon_search.png) left 5px no-repeat; padding-left:20px; position:relative; transition-duration: 0.3s; background-size: 14px 14px;}
+.area_check span.find_idpw > a:hover {color:#f2c000; background: url(../images/common/icon_search_hover.png) left 4px no-repeat; background-size: 14px 14px;}
+.area_check span.find_idpw > a:hover:before {content:''; position:absolute; right:0; bottom:0; width:88%; height:1px; background-color:#f2c000;}
+.login_page form.login_form .btn_wrap {margin-top:83px; position:relative;}
+.login_page form.login_form .btn_wrap .btn.btn_st02 {width:100%;}
+.login_page form.login_form .btn_wrap .result_comment.false {position:absolute; left:0; top:-45px;}
+.result_comment.false:before {
+	background: url(../images/common/icon_login_comment.png) left top no-repeat;
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;     
+    background-position:0;
+    margin: 0 0 -3px 0;
+    padding: 0 8px 0 0;
+	background-size: 16px 16px;}
+
+/*login_page join_select*/
+.login .login_page .join_select {position:absolute; top:0; left:60%; width:40%; padding:296px 0 60px 0; box-sizing: border-box; text-align:center;}
+.login .login_page .join_select > span {display:block; position:absolute; left:0; top:0; width:100%;}
+.login .login_page .join_select > span img {height:100%;}
+.login .login_page .join_select .join_formcont {width:270px; margin:0 auto;}
+.login .login_page .join_select h3.h3_tit {font-weight:normal; font-size:24px;}
+.login .login_page .join_select p.txt {margin-top:22px; line-height:170%;}
+.join_select .btn_wrap {margin-top:44px;}
+.join_select .btn_wrap .btn.btn_st02 {width:100%;}
+
+/*아이디 비밀번호 찾기*/
+.find_wrap {position:relative; box-sizing: border-box;}
+.find_wrap .tab_cont {padding:70px 15px 100px 15px; min-height:453px; border-top:1px solid #eeecec; box-sizing: border-box; text-align:center;}
+.find_wrap .tab_cont h3.h3_tit {font-size:24px; margin-bottom: 30px;}
+.find_wrap .tab_cont .btn_wrap .btn.btn_st02 {margin-top:50px;}
+
+/*아이디 비밀번호 찾기 결과*/
+.result {position:relative;}
+/*.result:before {content: ''; background: url(../images/login/icon_find_result.png) left top no-repeat; background-size:90px 180px; background-position:0 0; display:inline-block; width:90px; height:90px;}*/
+.result p {font-weight:bold;}
+.result p.resule_txt {padding-top:30px; font-size:24px; position:relative;}
+.result p.resule_txt:before {content: ''; background: url(../images/login/icon_find_result.png) left top no-repeat; background-size:90px 180px; background-position:0 0; display:block; width:90px; height:90px; margin:0 auto 30px auto;}
+
+.result p.resule_id {font-size:36px; color:#f2c000; margin-top:35px;}
+.result p.resule_txt span.s_block + span.s_block {padding-top:10px;}
+.result.false p.resule_txt {margin-bottom:60px;}
+.result.false p.resule_txt:before {content: ''; background-position:0 -90px;}
+
+dl.jion_go_btn {width:370px; margin:30px auto 0 auto; display:table;}
+dl.jion_go_btn dt, dl.jion_go_btn dd {display:table-cell;}
+dl.jion_go_btn dt {text-align:left;}
+dl.jion_go_btn dd {text-align:right;}
+
+/*비밀번호 정기 변경*/
+.pw_change {position:relative; text-align:center; padding:150px 0 20px 0; box-sizing: border-box;}
+.pw_change .pw_change_wrap {max-width:970px; margin:0 auto;}
+.pw_change .pw_change_wrap h2.h2_tit {position:relative;}
+.pw_change .pw_change_wrap h2.h2_tit:before {content: ''; width:90px; height:90px; background: url(../images/login/icon_pwchange.png) left top no-repeat; background-size: 90px 90px; display:block; margin:0 auto 30px auto;}
+.pw_change_wrap .change_text > p {margin-top:28px; font-size:24px; line-height:160%; }
+.pw_change_wrap .change_text .btn_wrap {margin-top:50px;}
+
+.pw_change_wrap .change_info {margin-top:100px; padding:27px 0 40px 0; border-top:6px solid #f6f5f5;}
+.change_info p.change_info_txt {text-align:center; line-height:160%; color:#909090; font-size:13px;}
+/* media query */
+@media all and (max-width:1023px){
+	/*login_page 공통*/
+	.content.login.bg_none {background-color: #fff;}
+	.login .login_page .login_wrap, 
+	.login .login_page .join_select {position:relative; width:100%; left:0; top:0;}
+	.login .login_page .login_wrap,
+	.login .login_page .join_select
+	 {width:100%; padding:34px 15px 10px 15px; height:auto;}
+	/*login_page*/  
+	.login .login_page .login_wrap .login_formcont {width:100%;}
+	.login .login_page .login_wrap:before {display:none;}
+	.login .login_page .login_wrap h2.h2_tit:before {content: ''; width:20px; height:24px; background-size: 20px 24px; margin-right:8px;}
+	.login .login_page .join_select h3.h3_tit {font-size:15px;}
+	.login .login_page .login_wrap .area_login {margin-top:28px;}
+	.login_page form.login_form .btn_wrap .result_comment.false {top:-32px;}
+	.login_page form.login_form .btn_wrap .result_comment.false:after{display:none;}
+
+	/*login_page join_select*/
+	.login .login_page .join_select {padding:28px 15px 20px 15px; margin-top:20px; border-top:1px solid #eeecec;}
+	.login .login_page .join_select .join_formcont {width:100%;}
+	.login .login_page .join_select > span,
+	.login .login_page .join_select p.txt {display:none;}
+	.join_select .btn_wrap {margin-top:20px;}
+	/*login_page button*/
+	.login_page form.login_form .btn_wrap {margin-top:65px;}
+
+	/*아이디/비밀번호찾기*/
+	.find_wrap .tab_cont {padding:40px 15px 20px 15px; min-height:270px;}
+	.find_wrap .tab_cont h3.h3_tit {display:none;}
+	.find_wrap .tab_cont .btn_wrap .btn.btn_st02 {width:100%; margin-top:40px;}
+	/*아이디 비밀번호 찾기 결과*/
+	.result {padding-top:10px;}
+	.result:before {content: ''; background-size:80px 160px; width:80px; height:80px;}
+	.result.false:before {content: ''; background-position: 0 -80px;}
+	.result p.resule_txt {font-size:15px; margin-top:20px;}
+	.result p.resule_id {font-size:28px; margin-top:30px;}
+	.result.false form.login_form {margin-top:30px;}
+	dl.jion_go_btn {width:100%; margin:15px auto 0 auto;}
+	.btn_wrap .btn + .btn.btn_login {margin-top:20px;}
+	/*비밀번호 정기 변경*/
+	.pw_change {padding:50px 15px 20px 15px;}
+	.pw_change_wrap h2.h2_tit {font-size:18px;}
+	.pw_change .pw_change_wrap h2.h2_tit:before {content: ''; margin:0 auto 20px auto;}
+	.pw_change_wrap .change_text > p {margin-top:22px; font-size:15px;}
+	.pw_change_wrap .change_text .btn_wrap {margin-top:35px;}
+	.pw_change_wrap .change_info {padding:27px 0 15px 0; margin-top:50px;}
+	.change_info p.change_info_txt {text-align:left;}
+	.change_info p.change_info_txt span.s_block {display:inline;}
+	.change_info p.change_info_txt span.s_block.mo_block {display:block;}
+
+}
+
+@media all and (max-width:414px){
+	/*login_page*/
+	.area_check span.find_idpw {float:left; width:51%; text-align:right;} 
+}

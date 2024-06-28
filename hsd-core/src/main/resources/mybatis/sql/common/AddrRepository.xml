@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.hsd.core.common.repository.AddrRepository">
+    <resultMap id="simpleAddrResult" type="addr">
+        <result property="sidoCode" column="SIDO_CODE" />
+        <result property="sidoName" column="SIDO_NAME" />
+        <result property="gungooCode" column="GUNGOO_CODE" />
+        <result property="gungooName" column="GUNGOO_NAME" />
+    </resultMap>
+
+    <!-- 시도 -->
+    <select id="getSido" resultMap="simpleAddrResult">
+        SELECT
+          SIDO_NAME, SIDO_CODE
+        FROM TB_SIGUNGOO
+        GROUP BY SIDO_NAME,SIDO_CODE
+        ORDER BY SIDO_NAME
+    </select>
+
+    <!--군구-->
+    <select id="getGungoo" resultMap="simpleAddrResult">
+        SELECT
+          GUNGOO_NAME, GUNGOO_CODE
+        FROM TB_SIGUNGOO
+        WHERE SIDO_CODE=#{sido}
+        ORDER BY GUNGOO_NAME
+    </select>
+</mapper>

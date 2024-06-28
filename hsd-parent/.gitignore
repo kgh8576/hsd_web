@@ -1,0 +1,5 @@
+.svn
+core/target
+pc-web/target
+.idea/
+*.iml
