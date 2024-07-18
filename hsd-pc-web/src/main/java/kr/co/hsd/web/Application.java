@@ -54,6 +54,7 @@ public class Application {
         addDefaultProfile(app, source);
 
         Environment env = app.run(args).getEnvironment();
+        System.out.println(env.getProperty("server.servlet.encoding.charset"));
         log.info("Access URLs:\n----------------------------------------------------------\n\t" +
                         "Local: \t\thttp://127.0.0.1:{}\n\t" +
                         "External: \thttp://{}:{}\n----------------------------------------------------------",

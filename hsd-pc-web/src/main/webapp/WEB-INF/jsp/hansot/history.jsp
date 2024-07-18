@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>연혁</title>
@@ -102,6 +103,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="ht_wrap">
                                 <h4>2024</h4>
                                 <ul>
+									
+									<li class="line">
+                                        <p>
+											<span class="s_block">마라치킨 덮밥&볶음면 출시</span><br>
+											<span class="s_block">믹스후라이 출시</span><br>
+											<span class="s_block">김피탕 재출시</span>
+										</p>
+										<span>06</span>
+									</li>
+									
 									<li class="line">
                                         <p>
 											<span class="s_block">숯불 직화 닭갈비 2종 출시</span><br>
@@ -110,7 +121,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<span class="s_block">조선비즈 '2024 한국의 가장 사랑받는 브랜드 대상'<br>13년 연속 수상</span>
 										</p>
 										<span>05</span>
-										
 									</li>
 									
 									<li class="line">

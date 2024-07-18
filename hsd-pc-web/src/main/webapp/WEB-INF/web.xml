@@ -14,11 +14,15 @@
   </listener>
 
   <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <listener>
     <listener-class>kr.co.hsd.web.listener.ConfigurationListener</listener-class>
   </listener>
 
   <!-- encodingFilter -->
-  <filter>
+<!--   <filter>
     <description>인코딩 필터 UTF-8로 설정</description>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -30,7 +34,7 @@
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
 
   <!-- sitemesh -->
   <filter>

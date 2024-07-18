@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>창업설명회</title>
@@ -68,17 +69,16 @@
                             창업설명회 일정
                             <%--<span>주 1회 개최!</span>--%>
                         </dt>
-                        <dd>
-                            <%--<span class="s_block">- 매주 화요일:오후2시 (전국)</span>--%>
-                            <span class="s_block">2024년  06월 13일(목) 11:00</span>
-                            <span class="s_block">2024년  06월 13일(목) 15:00</span>
-                            <span class="s_block">2024년  06월 28일(금) 11:00</span>
-                            <span class="s_block">2024년  06월 28일(금) 15:00</span>
+                        <dd id="joinDateSide" >
                         </dd>
                     </dl>
                     <dl class="br_info  location">
                         <dt class="fz_03">위치안내</dt>
                         <dd>
+                            <span class="s_block">서울특별시 강남구 압구정로 459 한솥빌딩 3층 대회의실</span>
+                            <span class="s_block">부산광역시 동구 중앙대로 206 부산역 공유회의실 202호</span>
+                        </dd>
+						<dd>
                             <a href="${cp}/hansot/location" class="location" target="_blank">오시는 길</a>
                         </dd>
                     </dl>
@@ -197,7 +197,7 @@
                                         <dt>창업희망지역</dt>
                                         <dd>
                                             <span class="select">
-                                                <select class="classic" title="지역 선택" id="joinLoc" name="joinLoc" onchange="JoinDate();">
+                                                <select class="classic" title="지역 선택" id="joinLoc" name="joinLoc">
                                                     <option value="">창업희망지역을 선택해 주세요.</option>
                                                 </select>
                                             </span>
@@ -318,18 +318,27 @@
           var briefingDate = '';
           var briefingTime = '';
           var briefingDateTime = new Date();
-
+		  var days = ['일','월','화','수','목','금','토'];
+		  
           for (var i=0; i<6; i++){
-            briefingDate = moment(date[i].joinDate).format('YYYY-MM-DD');
-            briefingTime = moment(date[i].joinDate).format('HH');
+            briefingYear = moment(date[i].joinDate).format('YYYY');
+	    briefingMonth = moment(date[i].joinDate).format('MM');
+	    briefingDate = moment(date[i].joinDate).format('DD');
+            briefingTime = moment(date[i].joinDate).format('HH:mm');
             briefingDateTime = moment(date[i].joinDate).format('YYYY-MM-DD HH:mm:ss');
-
+	    briefingDay = days[new Date(briefingDateTime).getDay()];
+	
+				
             type = date[i].type.toString();
-            if (type === "1"){
-                $("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingDate + " (수) " +briefingTime + " 시</option>");
-            }else{
-              $("#joinDate").append("<option value='" + briefingDateTime +"'>" + briefingDate + " (일) "+ briefingTime + " 시</option>");
-            }
+			if(date[i].idx == "220"){
+				$("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingYear + "년 "+briefingMonth+" 월"+briefingDate+"일("+briefingDay+") " +briefingTime + " (위치: 부산)</option>");
+				$("#joinDateSide").append(briefingYear + "년 "+briefingMonth+"월 "+briefingDate+"일("+briefingDay+") " + briefingTime +" (위치: 부산)</br>");
+			}else{
+				$("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingYear + "년 "+briefingMonth+" 월"+briefingDate+"일("+briefingDay+") " +briefingTime + " (위치:서울)</option>");
+				$("#joinDateSide").append(briefingYear + "년 "+briefingMonth+"월 "+briefingDate+"일("+briefingDay+") " + briefingTime +" (위치: 서울)</br>");
+			}
+
+            
           }
 
         }
@@ -363,7 +372,7 @@
           if (today.getDay() == 0 && today.getDate()<8){
             dd = getFormattedDate(today);
             $("#joinDate").append("<option value='" + dd + " 14:00:00'>" + dd + " (일) 14시" + "</option>");
-
+	
             j++;
           }
 

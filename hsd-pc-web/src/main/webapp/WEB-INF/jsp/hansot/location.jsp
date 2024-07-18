@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>오시는길</title>
@@ -109,6 +110,11 @@
                             <p class="map_address">
                                 <span class="s_block">서울특별시 강남구 압구정로 459, 1층(청담동, 한솥빌딩)</span>
                                 <span class="s_block call">02-2039-8280</span>
+                            </p>
+							<h5 class="h3_tit fz_01"><br></br>부산</h5>
+                            <p class="map_address">
+                                <span class="s_block">부산광역시 동구 중앙대로 206 부산역 공유 회의실 202호</span>
+                                <span class="s_block call">02-585-1114</span>
                             </p>
                         </div>
                         <!-- //주소 -->
@@ -251,9 +257,9 @@
 
     var latlng = [
         {lat : "37.525450", lng : "127.046986"},  // 서울본사
+        {lat : "35.1176012", lng : "129.0450579"},  // 부산사업부
         {lat : "36.3464304", lng : "127.3899069"},  // 중부사업부
         {lat : "35.8681321", lng : "128.6303401"},  // 대구사업부
-        {lat : "35.1177324", lng : "129.0415861"},  // 부산사업부
         {lat : "35.1474656", lng : "126.9119342"}   // 호남사업부
     ];
     var mapContainer, map, mapOptions, position, markerOptions;
@@ -262,11 +268,14 @@
     function loadMap(n) {
         var lat = latlng[n].lat;
         var lng = latlng[n].lng;
+        var bulat = latlng[n+1].lat;
+        var bulng = latlng[n+1].lng;
         var id = $(".tab_cont.active").find(".map_img > div").attr("id");
         mapContainer = document.getElementById(id); // 지도를 표시할 div
         mapResize();
 
         position = new naver.maps.LatLng(lat, lng);
+		subposition = new naver.maps.LatLng(bulat, bulng);
         mapOptions = {
             center: position,
             zoom: 10,
@@ -287,7 +296,19 @@
                 anchor: new naver.maps.Point(25, 26)
             }
         };
+		submarkerOptions = {
+            position: subposition.destinationPoint(0, 0),
+            map: map,
+            icon: {
+                url: '<c:url value="/assets/images/common/icon_map.png" />',
+                size: new naver.maps.Size(42, 52),
+                scaledSize: new naver.maps.Size(42, 52),
+                origin: new naver.maps.Point(0, 0),
+                anchor: new naver.maps.Point(25, 26)
+            }
+        };
         new naver.maps.Marker(markerOptions);
+		new naver.maps.Marker(submarkerOptions);
     }
 
     function mapResize(){
