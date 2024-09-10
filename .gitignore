@@ -13,6 +13,9 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
+MANIFEST.MF
+pom.properties
 
 # External tool builders
 .externalToolBuilders/
