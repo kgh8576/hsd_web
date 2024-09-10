@@ -67,70 +67,119 @@
     <section class="incruit mo_version">
         <!-- 인재채용 -->
         <div class="incruit_wrap">
-            <h2 class="h2_tit h2_01">인재채용</h2>
+            <h2 class="h2_tit h2_01" id="culture">조직문화</h2>
             <div class="incruit_cont">
-                <!-- 한솥이 원하는 인재상 -->
-                <div class="talent_wrap">
-                    <h3 class="h3_tit fz_01">한솥이 원하는 인재상</h3>
-                    <p class="fz_03">착한 심성, 외식업에 대한 열정이 가득한 준비된 인재</p>
-                    <div class="talent_list">
-                        <ul class="keypoint">
-                            <li class="ta_list_01">
-                                <p class="tit fz_02">
-                                    <span class="s_block"><strong>마음이 따뜻하고</strong></span>
-                                    <span class="s_block"><strong>착하다</strong></span>
-                                </p>
-                            </li>
-                            <li class="ta_list_02">
-                                <p class="tit fz_02">
-                                    <span class="s_block"><strong>외식업을</strong></span>
-                                    <span class="s_block"><strong>좋아한다</strong></span>
-                                </p>
-                            </li>
-                            <li class="ta_list_03">
-                                <p class="tit fz_02">
-                                    <strong><span class="s_block">꼼꼼하고 치밀하게</span></strong>
-                                    <strong><span class="s_block">업무를 신속하게 처리한다</span></strong>
-                                </p>
-                            </li>
-                            <li class="ta_list_04">
-                                <p class="tit fz_02">
-                                    <span class="s_block"><strong>단정한 복장과 약속시간 엄수,</strong></span>
-                                    <span class="s_block"><strong>항상 큰 목소리로 밝게 인사를 나눈다</strong></span>
-                                </p>
-                            </li>
-                            <li class="ta_list_05">
-                                <p class="tit fz_02">
-                                    <span class="s_block"><strong>법과 윤리를</strong></span>
-                                    <span class="s_block"><strong>철저히 지킨다</strong></span>
-                                </p>
-                            </li>
-                        </ul>
+                <!-- 인재상 -->
+                <div class="in_list rank">
+                    <h4 class="h4_tit fz_02">인재상</h4>
+                    <div class="cont">
+                        <div class="rank_info">
+                        </div>
                     </div>
                 </div>
-                <!-- //한솥이 원하는 인재상 -->
+                <!-- //인재상 -->
+                <!-- 업무표준 -->
+                <div class="in_list standards">
+                    <h4 class="h4_tit fz_02">업무표준</h4>
+                    <div class="cont">
+                        <div class="standards_wrap">
+                            <table class="standards_table">
+                            	<tr>
+                            		<th>지시</th>
+                            		<th>보고</th>
+                            		<th>피드백</th>
+                            	</tr>
+                            	<tr>
+                            		<td>[업무지시 3 원칙]</td>
+                            		<td>[엄무보고 3 원칙]</td>
+                            		<td>[피드백 3 원칙]</td>
+                            	</tr>
+                            	<tr>
+                            		<td>지시 내용 파악</td>
+                            		<td>적시 보고</td>
+                            		<td>일단 격려</td>
+                            	</tr>
+                            	<tr>
+                            		<td>명확하고 구체적인 업무지시</td>
+                            		<td>중간 보고</td>
+                            		<td>개선점 코칭</td>
+                            	</tr>
+                            	<tr>
+                            		<td>업무 마감 기한 공지</td>
+                            		<td>간결 보고</td>
+                            		<td>구체적인 칭찬</td>
+                            	</tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- //업무표준 -->
+                <!-- Work Way -->
+                <div class="in_list workWay">
+                    <h4 class="h4_tit fz_02">Work Way</h4>
+                    <div class="cont">
+                        <div class="workWay_wrap">
+                            <table class="workWay_table">
+		                    	<tr>
+		                    		<th colspan="3">[ 기본을 지키는 한솥의 일하는 방식 "5H" ]</th>
+		                    	</tr>
+		                    	<tr>
+		                    		<td>1</td>
+		                    		<td>Honest, 원칙을 지키며 과정과 결과는 투명하게 공유합니다.</td>
+		                    		<td>규정/원칙준수</br>투명한 공유</td>
+		                    	</tr>
+		                    	<tr>
+		                    		<td>2</td>
+		                    		<td>Harmony, 서로에 대한 존중을 바탕으로 배려 깊은 소통을 합니다.</td>
+		                    		<td>소통</br>존중</td>
+		                    	</tr>
+		                    	<tr>
+		                    		<td>3</td>
+		                    		<td>Host, 책임감을 갖고 주도적으로 일하여 내 일의 주인이 됩니다.</td>
+		                    		<td>책임감</br>주도성</td>
+		                    	</tr>
+		                    	<tr>
+		                    		<td>4</td>
+		                    		<td>Higher&Harder, 보다 높은 목표에 도전하며 학습하고 성장합니다.</td>
+		                    		<td>도전</br>전문성</td>
+		                    	</tr>
+		                    	<tr>
+		                    		<td>5</td>
+		                    		<td>Heartful, 작은 것 하나까지 성심껏살피며 완벽을 추구합니다.</td>
+		                    		<td>디테일</td>
+		                    	</tr>
+		                    </table>
+						</div>
+	                </div>
+                </div>
+				<!-- //Work Way -->
+            </div>
+			<h2 class="h2_tit h2_01" id="system">인사제도</h2>
+            <div class="incruit_cont">
                 <!-- 직급체계 -->
                 <div class="in_list rank">
                     <h4 class="h4_tit fz_02">직급체계</h4>
                     <div class="cont">
-                        <div class="rank_info">
-                            <div class="rank_txt" style="margin-left:272.5px;margin-right:auto;">
-                                <dl class="first">
-                                    <dt style="font-size:20px;">책임(팀원)</dt>
-									<dd><dd/>
-                                </dl>
-                                <dl>
-                                    <dt style="margin-left:10px;font-size:20px;">팀장</dt>
-									<dd><dd/>
-                                </dl>
-                                <dl class="last">
-                                    <dt style="font-size:20px;">본부장</dt>
-									<dd><dd/>
-                                </dl>
-                            </div>
+                        <div class="pay_wrap" style="color: #021d55;">
+                            <p>
+                                <span class="s_block">"<strong style="color: #1d87cf;">개인의 성과와 역량</strong>이 빛날 수 있도록 직책자 제외</span>
+                                <span class="s_block">전직원 책임제로 플랫한 조직문화를 추구하고 있습니다."</span>
+                            </p>
                         </div>
-                        <p class="cont_first">- 직무역량 중심의 수평적인 조직문화를 위해 직책 중심의 인사제도로 전환하였습니다.</p>
-                        <p>- 입사 후 3개월의 수습 기간이 있습니다. (임원급 제외)</p>
+                    </div>
+                    <div class="cont">
+                        <div id="rank1">
+                            <p>
+                                <span class="s_block"><strong>관리자</strong></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <div id="rank2">
+                            <p>
+                                <span class="s_block"><strong>실무자</strong></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <!-- //직급체계 -->
@@ -139,89 +188,73 @@
                     <h4 class="h4_tit fz_02">복리후생</h4>
                     <div class="cont">
                         <div class="welfare_wrap">
-                            <dl class="welfare_01">
-                                <dt class="fz_03">회사생활 및 자기계발</dt>
-                                <dd>장기 근속자 포상 및 창업비용 지원</dd>
-                                <dd>어학(영어, 일어) 학습 교육비 지원</dd>
-                                <dd>우수사원 포상 및 해외연수</dd>
-                                <dd>복지포인트 지급</dd>
-                                <dd>한솥/미타니야 이용 시 직원 할인
-                                    <span class="s_block">(한솥 50%/미타니야20%)</span>
-                                </dd>
-                                <dd>명절 선물 지급</dd>
-								<dd>매월 신메뉴 모바일시식권 지급</dd>
-                            </dl>
-                            <dl class="welfare_02">
-                                <dt class="fz_03">가족 및 여가</dt>
-                                <dd>장기근속자 포상</dd>
-                                <dd>법인소유 콘도 이용</dd>
-                                <dd>본인(미혼)/배우자(기혼) 생일 케익 지급 </dd>
-                                <dd>학자금 지원</dd>
-                                <dd>각종 기념일 쿠폰 지급</dd>
-                                <dd>경조휴가/경조사비 지원</dd>
-                            </dl>
+                        	<table>
+                        		<tr>
+                        			<td class="welfare_bg" id="welfare_bg1"></td>
+                        			<td class="welfare_cont">Happy Point</br>근속년수에 따른 복지포인트</td>
+                        			<td class="welfare_bg" id="welfare_bg2"></td>
+                        			<td class="welfare_cont">법인콘도 지원</br>임직원가로 이용가능</td>
+                        		</tr>
+                        		<tr>
+                        			<td class="welfare_bg" id="welfare_bg3"></td>
+                        			<td class="welfare_cont">장기근속자</br>장기근속 포상 및 창업지원</td>
+                        			<td class="welfare_bg" id="welfare_bg4"></td>
+                        			<td class="welfare_cont">신규입사자 OJT</br>교육 및 웰컴키트 제공</td>
+                        		</tr>
+                        		<tr>
+                        			<td class="welfare_bg" id="welfare_bg5"></td>
+                        			<td class="welfare_cont">교육비 지원</br>영어,일본어 학습비 지원</td>
+                        			<td class="welfare_bg" id="welfare_bg6"></td>
+                        			<td class="welfare_cont">생일 축하선물</br>15가지의 선택지</td>
+                        		</tr>
+                        		<tr>
+                        			<td class="welfare_bg" id="welfare_bg7"></td>
+                        			<td class="welfare_cont">Monthly Happiness</br>매월 신메뉴 모바일쿠폰 지급</td>
+                        			<td class="welfare_bg" id="welfare_bg8"></td>
+                        			<td class="welfare_cont">경조금 지원</br>경조금, 경조휴가</td>
+                        		</tr>
+                        		<tr>
+                        			<td class="welfare_bg" id="welfare_bg9"></td>
+                        			<td class="welfare_cont">한솥's Culture</br>한달에 1번 '월간한솥' 진행</td>
+                        			<td class="welfare_bg" id="welfare_bg10"></td>
+                        			<td class="welfare_cont">임직원할인</br>할인 50%, 미타니야 30%</td>
+                        		</tr>
+                        	</table>
                         </div>
                     </div>
 
                 </div>
                 <!-- //복리후생 -->
-                <!-- 급여체계 -->
-                <div class="in_list pay">
-                    <h4 class="h4_tit fz_02">급여체계</h4>
-                    <div class="cont">
-                        <div class="pay_wrap">
-                            <p>
-                                <span class="s_block">공정하고 객관적인 평가로 역량과 업적에 따른 성과지향적 급여체계를 운영</span>
-                                <span class="s_block">PS/PI 제도 운영 (회사의 실적과 개인성과에 따른 별도 보상제도)</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- //급여체계 -->
-                <!-- 채용절차 -->
-                <div class="in_list employ">
-                    <h4 class="h4_tit fz_02">채용절차</h4>
-                    <div class="cont">
-                        <div class="employ_wrap">
-                            <dl class="employ_01">
-                                <dt class="fz_03">신입사원</dt>
-                                <dd>
-                                    <span>서류전형</span>
-                                    <span>인·적성 평가</span>
-                                    <span>면접 1차·2차</span>
-                                    <span>인턴 3개월</span>
-                                    <span>직무능력평가</span>
-                                    <span class="last">최종합격</span>
-                                </dd>
-                            </dl>
-                            <dl class="employ_02">
-                                <dt class="fz_03">경력사원</dt>
-                                <dd>
-                                    <span>서류전형</span>
-                                    <span>인·적성 평가</span>
-                                    <span>실무자 면접</span>
-                                    <span>경영진 면접</span>
-                                    <span class="last">최종합격</span>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <!-- //채용절차 -->
-                <!-- btn -->
-                <div class="in_site_wrap">
-                    <p>한솥 채용사이트에서 채용 공고와 더욱 다양한 한솥 채용 정보를 확인해 보세요.</p>
-                    <div class="btn_wrap">
-                        <span class="btn btn_st03"><a href="https://hsd.recruiter.co.kr/appsite/company/index" target="_blank" class="c_01">입사지원</a></span>
-                    </div>
-                </div>
-                <!-- //btn -->
             </div>
+			<h2 class="h2_tit h2_01" id="information">채용정보</h2>
+            <div class="incruit_cont">
+                <!-- 직급체계 -->
+                <div class="in_list procedure">
+                    <h4 class="h4_tit fz_02">채용절차</h4>
+                    <div class="cont"><img src="${cp}/assets/images/footer/procedure_bg1.png"></div>
+                </div>
+                <!-- //직급체계 -->
+                <!-- 복리후생 -->
+                <div class="in_list information">
+                    <h4 class="h4_tit fz_02">입사지원 방법</h4>
+                    <div class="cont">
+                        <div class="information_wrap">
+                       		<ul>
+                       			<li>한솥 채용홈페이지 (<a href="https://hsd.recruiter.co.kr/appsite/company/index" target="_blank">https://hsd.recruiter.co.kr/appsite/company/index</a>)에서 채용공고 확인 및 지원 가능</li>
+                       			<li>문의처 : 한솥 채용홈페이지  채용 QnA</li>
+                       		</ul>
+                        	<div class="btn_wrap">
+		                        <span class="btn btn_st03"><a href="https://hsd.recruiter.co.kr/appsite/company/index" target="_blank" class="c_01">입사지원</a></span>
+		                    </div>
+                        </div>
+                    </div>
 
+                </div>
+                <!-- //복리후생 -->
+            </div>
         </div>
         <!-- //인재채용 -->
     </section>
 </div>
-
 </body>
 </html>

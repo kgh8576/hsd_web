@@ -38,6 +38,15 @@ public class FooterController extends BaseFormController {
     public String incruit()  {
         return JSP_PATH + "incruit";
     }
+    
+    /**
+     * 인재채용
+     * @return
+     */
+    @RequestMapping("/incruitIntro")
+    public String incruitIntro()  {
+        return JSP_PATH + "incruitIntro";
+    }
 
     /**
      * 협력업체 등록

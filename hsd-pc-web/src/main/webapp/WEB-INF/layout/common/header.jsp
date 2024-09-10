@@ -5,6 +5,9 @@
     <div class="hd_flex">
         <div class="area_flex">
             <ul>
+            	<li>
+            		<a href="https://franchise.hsd.co.kr/" target="_blank">한솥 창업</a>
+            	</li>
                 <li>
                     <c:if test="${!isAuthenticated}">
                     <a href="${cp}/login">로그인</a>
@@ -125,14 +128,14 @@
                             <p class="dp1_tit"><a href="#none">FRANCHISE</a></p>
                             <div class="dp2">
                                 <ul>
-                                    <li><a href="${cp}/franchise/hansot_store">Why 한솥 가맹점</a></li>
-                                    <li><a href="${cp}/franchise/success">성공수기</a></li>
+                                    <li><a href="https://franchise.hsd.co.kr/" target="_blank">한솥 창업</a></li>
+                                    <%-- <li><a href="${cp}/franchise/success">성공수기</a></li>
                                     <li><a href="${cp}/franchise/process">창업개설절차</a></li>
-                                    <li><a href="${cp}/franchise/calc">예상 창업 비용</a></li>
+                                    <li><a href="${cp}/franchise/calc">예상 창업 비용</a></li> --%>
                                     <%--<li><a href="${cp}/franchise/found_money">창업 자금 마련</a></li>--%>
                                     <%--<li><a href="${cp}/franchise/system">엔젤가맹점 제도</a></li>--%>
-                                    <li><a href="${cp}/franchise/qna">창업문의</a></li>
-                                    <li><a href="${cp}/franchise/briefing">창업설명회 일정·신청</a></li>
+                                    <%-- <li><a href="${cp}/franchise/qna">창업문의</a></li>
+                                    <li><a href="${cp}/franchise/briefing">창업설명회 일정·신청</a></li> --%>
                                 </ul>
                             </div>
                         </li>
@@ -147,7 +150,19 @@
                                     <li><a href="${cp}/hansot/news_list">한솥 NEWS</a></li>
                                     <li><a href="${cp}/hansot/location">오시는 길</a></li>
                                     <li><a href="${cp}/footer/faq_list">고객센터</a></li>
-                                    <li class="h_last"><a href="${cp}/footer/incruit">인재채용</a></li>
+                                    <%-- <li class="h_last"><a href="${cp}/footer/incruit">인재채용</a></li> --%>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dp1">
+                            <p class="dp1_tit"><a href="#none">RECRUIT</a></p>
+                            <div class="dp2">
+                                <ul>
+                                    <li><a href="${cp}/footer/incruit#culture">조직문화</a></li>
+                                    <li><a href="${cp}/footer/incruit#system">인사제도</a></li>
+                                    <li><a href="${cp}/footer/incruit#information">채용정보</a></li>
+                                    <li><a href="${cp}/footer/incruitIntro">직무소개</a></li>
+                                    <li class="h_last"><a href="https://hsd.recruiter.co.kr/appsite/company/index" target="_blank">입사지원</a></li>
                                 </ul>
                             </div>
                         </li>

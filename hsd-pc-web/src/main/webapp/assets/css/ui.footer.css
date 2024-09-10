@@ -153,9 +153,29 @@ table.list_tb td.td_04 {padding-right:30px;}
 .incruit_cont .talent_wrap .talent_list ul.keypoint li p.tit {line-height:25px;}
 .incruit_cont .talent_wrap .talent_list ul.keypoint li p.tit strong {font-family: 'NotoSans'; font-size:20px; text-align:left }
 
+/* 업무표준 */
+.standards_wrap {text-align: center;}
+.standards_table th {text-align: center; width: 33%;}
+.standards_table tr:nth-child(1) th{padding : 10px; color: white; border-bottom:10px white solid; border-top: 10px white solid; border-left: 20px white solid; border-right: 20px white solid;}
+.standards_table tr:nth-child(1) th:nth-child(1){background-color: #953735;}
+.standards_table tr:nth-child(1) th:nth-child(2){background-color: #0070c0;}
+.standards_table tr:nth-child(1) th:nth-child(3){background-color: #00b050;}
+.standards_table tr:nth-child(2) td{padding : 10px;}
+.standards_table tr:nth-child(n+3) td{padding : 20px; border-bottom:10px white solid; border-top: 10px white solid; border-left: 20px white solid; border-right: 20px white solid;}
+.standards_table tr:nth-child(n+3) td:nth-child(1){background-color: #e6b9b8;}
+.standards_table tr:nth-child(n+3) td:nth-child(2){background-color: #c6d9f1;}
+.standards_table tr:nth-child(n+3) td:nth-child(3){background-color: #d7e4bd;}
+
+/* workWay */
+.workWay_table th {font-size: 20px; text-align: center; border-bottom:20px white solid; border-top: 20px white solid;}
+.workWay_table tr:nth-child(n+2) td{padding : 10px;}
+.workWay_table tr:nth-child(n+2) td:nth-child(2n+1){text-align: center; background-color: #404040; color: white; border-bottom:10px white solid; border-top: 10px white solid; border-left: 20px white solid; border-right: 20px white solid;}
+.workWay_table tr:nth-child(n+2) td:nth-child(2){background-color: #ffdf00; border-bottom:10px white solid; border-top: 10px white solid;}
+.workWay_table td {height: 40px;}
+
 /*직급체계*/
 .in_list {margin-top:100px; position:relative;}
-.in_list.rank {margin-top:100px;}
+.in_list.rank {margin-top:9px;}
 .in_list.pay {margin-top:75px;}
 .in_list h4 {position:relative;}
 .in_list h4:before{content: ''; width: 4px; height: 24px; background-color: #373737; margin: 0 15px -3px 0; display: inline-block;}
@@ -172,12 +192,19 @@ table.list_tb td.td_04 {padding-right:30px;}
 .rank_info .rank_txt dl.last dd:before {content: ''; width:20px;}
 .rank_info .rank_txt dl.first dt:after {content: ''; margin:15px 0 0 33px; }
 .rank_info .rank_txt dl.first dd:before {content: ''; margin-left:33px;}
-.rank .cont p {color:#909090; line-height:160%;}
-.rank .cont p.cont_first {margin-top:15px;}
+
+/* 인사재도 - 직급체계 */
+#rank1 {position:relative; width:100%; height:150px; background: url(../images/footer/rank_bg1.png) top no-repeat;}
+#rank1 p {padding-top: 41px; padding-left: 57%; font-size:33px;}
+#rank2 {position:relative; width:100%; height:150px; background: url(../images/footer/rank_bg2.png) top no-repeat;}
+#rank2 p {padding-top: 41px; padding-left: 57%; font-size:33px;}
+
 
 /*복리후생*/
-.welfare_wrap {padding-left:400px; position:relative;}
-.welfare_wrap:before {content: ''; background: url(../images/footer/icon_welfare.png) left top no-repeat; display: inline-block; width: 240px; height: 250px; margin: 0 auto 30px auto; position:absolute; left:55px; top:58px;}
+.welfare_wrap {position:relative;}
+.welfare_bg {position:relative; width:20%; height:100px;}
+.welfare_cont {width: 350px; font-size: 20px;}    
+
 .welfare_wrap dl {position:relative; width:570px;}
 .welfare_wrap dl dt {color:#5c5953; font-weight:bold; margin-bottom:25px;}
 .welfare_wrap dl dd {position:relative; display:inline-block; width:48%; margin:0 0 18px 0;box-sizing: border-box; padding-left:20px; vertical-align: top;}
@@ -186,14 +213,26 @@ table.list_tb td.td_04 {padding-right:30px;}
 .welfare_wrap dl dd:before {content: ''; display:inline-block; width:5px; height:2px; background-color: #f6ca00; margin:0 12px 0 -20px; vertical-align: middle}
 .welfare_wrap dl.welfare_02 {margin-top:18px; padding-top:40px; border-top:1px solid #ddd;}
 
-.pay_wrap {position:relative; text-align:center; padding-top:280px; background: url(../images/footer/pay_img.png) center top no-repeat; width:100%;}
-.pay_wrap:before,
-.pay_wrap:after {position:absolute; left:50%; top:111px; font-weight:bold; font-size:24px;}
-.pay_wrap:before {content: '연봉제';  color:#5c5953; margin-left:-133px;}
-.pay_wrap:after {content: '성과급제'; color:#fff; margin-left:62px;}
+#welfare_bg1 {background: url(../images/footer/welfare_bg1.png) top no-repeat;}
+#welfare_bg2 {background: url(../images/footer/welfare_bg2.png) top no-repeat;}
+#welfare_bg3 {background: url(../images/footer/welfare_bg3.png) top no-repeat;}
+#welfare_bg4 {background: url(../images/footer/welfare_bg4.png) top no-repeat;}
+#welfare_bg5 {background: url(../images/footer/welfare_bg5.png) top no-repeat;}
+#welfare_bg6 {background: url(../images/footer/welfare_bg6.png) top no-repeat;}
+#welfare_bg7 {background: url(../images/footer/welfare_bg7.png) top no-repeat;}
+#welfare_bg8 {background: url(../images/footer/welfare_bg8.png) top no-repeat;}
+#welfare_bg9 {background: url(../images/footer/welfare_bg9.png) top no-repeat;}
+#welfare_bg10 {background: url(../images/footer/welfare_bg10.png) top no-repeat;}
+
+.pay_wrap {position:relative; text-align:center; width:100%;}
 .pay_wrap p {line-height:160%;}
 
+
+
 /*채용절차*/
+
+
+
 .employ_wrap {position:relative;}
 .employ_wrap dl dt {font-weight:bold; color:#5c5953;}
 .employ_wrap dl dd {position:relative; margin-top:30px;}
@@ -213,6 +252,29 @@ table.list_tb td.td_04 {padding-right:30px;}
 
 dl.faq_form dd.no_total {float:right; color:#909090; padding-top:18px;}
 dl.faq_form dt div.in_box a.se_box {display:none;}
+
+.in_list.procedure {margin-top:9px;}
+.procedure .cont{text-align: center;}
+
+/* 입사지원방법 */
+.information_wrap ul {margin-left: 40px; margin-bottom: 30px; font-size: 20px; list-style: disc;}
+.information_wrap ul a {color: blue;}
+
+
+/* 직무소개 */
+
+.in_list.intro {margin-top:9px;}
+.intro_info {margin-left: 20px;}
+.intro_info p {font-size: 30px;}
+.intro_table {margin-top: 40px; text-align: center; width: 100%; table-layout: fixed; height: 100px;}
+.intro_table td {padding: 5px; border: 1px #e5e5e5 solid; color: #666;}
+.intro_table .on{border-bottom: 3px solid #f2c000; background-color: #f6f6f6; color: black;}
+
+.intro_table td:hover {	background-color: #f6f6f6; color: black;}
+
+.intro_dtl_table {margin-top: 30px; table-layout: fixed; font-size: 20px;}
+.intro_dtl_table th {padding: 20px 20px 20px 40px;}
+.intro_dtl_table td	{padding-left: 40px;  line-height: 160%; vertical-align: text-top;}
 
 
 /* media query */

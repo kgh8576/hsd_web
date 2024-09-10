@@ -333,9 +333,16 @@
       if (event.length > 0) {
         var event_content = "";
         $.each(event, function (ekey, eval) {
-          event_content += eval.title + "<br/>";
+		  const todayTimestamp = new Date().getTime();
+		  if(eval.startDt < todayTimestamp && todayTimestamp < eval.endDt + 86400000){
+			  event_content += eval.title + "<br/>";  
+		  }
         });
-        $("#pop2_store_event").html(event_content);
+        if(event_content == ""){
+        	$("#pop2_store_event").text("이벤트가 없습니다.");
+        }else{
+        	$("#pop2_store_event").html(event_content);
+        }
       } else {
         $("#pop2_store_event").text("이벤트가 없습니다.");
       }
