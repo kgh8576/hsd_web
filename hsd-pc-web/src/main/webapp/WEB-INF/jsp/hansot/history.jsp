@@ -106,6 +106,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									
 									<li class="line">
                                         <p>
+											<span class="s_block">연잎 오리구이 출시</span><br>
+											<span class="s_block">열무 야채 비빔밥&비빔면 출시</span><br>
+											<span class="s_block">디지틀 조선일보 '2024 소비자가 선정한 품질만족 대상'<br>7년 연속 수상</span>
+											<span class="s_block">매일경제 '2024 100대 프랜차이즈' 13년 연속 선정</span>
+										</p>
+										<span>07</span>
+									</li>
+									
+									<li class="line">
+                                        <p>
 											<span class="s_block">마라치킨 덮밥&볶음면 출시</span><br>
 											<span class="s_block">믹스후라이 출시</span><br>
 											<span class="s_block">김피탕 재출시</span>

@@ -270,6 +270,8 @@ dl.no_form dt div.in_box a.se_box {display:none;}
 	.award_list_wrap .year_wrap.y_2024 ul li.award_84 div:before {content: ''; width:120px; height:120px; background-size: 120px 120px;}
 	.award_list_wrap .year_wrap.y_2024 ul li.award_85 div:before {content: ''; width:120px; height:120px; background-size: 120px 120px;}
 	.award_list_wrap .year_wrap.y_2024 ul li.award_86 div:before {content: ''; width:120px; height:120px; background-size: 120px 120px;}
+	.award_list_wrap .year_wrap.y_2024 ul li.award_87 div:before {content: ''; width:120px; height:120px; background-size: 120px 120px;}
+	.award_list_wrap .year_wrap.y_2024 ul li.award_88 div:before {content: ''; width:120px; height:120px; background-size: 120px 120px;}
 
 /*수상_2024*/
 .award_list_wrap .year_wrap ul li.award_81 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_81.jpg) left top no-repeat;}
@@ -278,6 +280,8 @@ dl.no_form dt div.in_box a.se_box {display:none;}
 .award_list_wrap .year_wrap ul li.award_84 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_84.jpg) left top no-repeat;}
 .award_list_wrap .year_wrap ul li.award_85 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_85.jpg) left top no-repeat;}
 .award_list_wrap .year_wrap ul li.award_86 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_86.jpg) left top no-repeat;}
+.award_list_wrap .year_wrap ul li.award_87 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_87.jpg) left top no-repeat;}
+.award_list_wrap .year_wrap ul li.award_88 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_88.jpg) left top no-repeat;}
 
 /*수상_2023*/
 .award_list_wrap .year_wrap ul li.award_68 div:before {content: ''; width:120px; height:120px; background: url(../images/hansot/img_award_68.jpg) left top no-repeat;}

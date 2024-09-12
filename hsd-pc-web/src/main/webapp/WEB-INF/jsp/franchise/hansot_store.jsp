@@ -228,7 +228,7 @@
                         <p>
                             <span class="s_block">음식업 경험이 없는 분이라도 훌륭한 경영주가 되실 수</span>
                             <span class="s_block">있도록 연수 센터 강의와  직영점 실습을 통해 기업이념,</span>
-                            <span class="s_block">위생, 조리, 접객, 판촉, 회계 등 모든 분야를 3주동안</span>
+                            <span class="s_block">위생, 조리, 접객, 판촉, 회계 등 모든 분야를 2주동안</span>
                             <span class="s_block">체계적으로 교육해 드립니다.</span>
                         </p>
                     </div>

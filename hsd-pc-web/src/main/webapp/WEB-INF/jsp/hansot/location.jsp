@@ -111,11 +111,11 @@
                                 <span class="s_block">서울특별시 강남구 압구정로 459, 1층(청담동, 한솥빌딩)</span>
                                 <span class="s_block call">02-2039-8280</span>
                             </p>
-							<h5 class="h3_tit fz_01"><br></br>부산</h5>
+							<!--<h5 class="h3_tit fz_01"><br></br>대전 (창업설명회)</h5>
                             <p class="map_address">
-                                <span class="s_block">부산광역시 동구 중앙대로 206 부산역 공유 회의실 202호</span>
+                                <span class="s_block">대전 동구 중앙로 215 대전역 공유회의실 (2층, ktx산천)</span>
                                 <span class="s_block call">02-585-1114</span>
-                            </p>
+                            </p>-->
                         </div>
                         <!-- //주소 -->
                         <!-- 교통편안내 -->
@@ -308,7 +308,7 @@
             }
         };
         new naver.maps.Marker(markerOptions);
-		new naver.maps.Marker(submarkerOptions);
+		<!--new naver.maps.Marker(submarkerOptions);-->
     }
 
     function mapResize(){

@@ -76,7 +76,7 @@
                         <dt class="fz_03">위치안내</dt>
                         <dd>
                             <span class="s_block">서울특별시 강남구 압구정로 459 한솥빌딩 3층 대회의실</span>
-                            <span class="s_block">부산광역시 동구 중앙대로 206 부산역 공유회의실 202호</span>
+                            <span class="s_block">대전 동구 중앙로 215 대전역 공유회의실 (2층, ktx산천)</span>
                         </dd>
 						<dd>
                             <a href="${cp}/hansot/location" class="location" target="_blank">오시는 길</a>
@@ -330,11 +330,11 @@
 	
 				
             type = date[i].type.toString();
-			if(date[i].idx == "220"){
-				$("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingYear + "년 "+briefingMonth+" 월"+briefingDate+"일("+briefingDay+") " +briefingTime + " (위치: 부산)</option>");
-				$("#joinDateSide").append(briefingYear + "년 "+briefingMonth+"월 "+briefingDate+"일("+briefingDay+") " + briefingTime +" (위치: 부산)</br>");
+			if(date[i].idx == "222"){
+				$("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingYear + "년 "+briefingMonth+" 월"+briefingDate+"일("+briefingDay+") " +briefingTime + " (위치: 대전)</option>");
+				$("#joinDateSide").append(briefingYear + "년 "+briefingMonth+"월 "+briefingDate+"일("+briefingDay+") " + briefingTime +" (위치: 대전)</br>");
 			}else{
-				$("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingYear + "년 "+briefingMonth+" 월"+briefingDate+"일("+briefingDay+") " +briefingTime + " (위치:서울)</option>");
+				$("#joinDate").append("<option value='" + briefingDateTime  +"'>" + briefingYear + "년 "+briefingMonth+" 월"+briefingDate+"일("+briefingDay+") " +briefingTime + " (위치: 서울)</option>");
 				$("#joinDateSide").append(briefingYear + "년 "+briefingMonth+"월 "+briefingDate+"일("+briefingDay+") " + briefingTime +" (위치: 서울)</br>");
 			}
 

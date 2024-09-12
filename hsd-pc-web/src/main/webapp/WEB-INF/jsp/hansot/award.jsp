@@ -86,6 +86,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="year_wrap y_2024">
                     <h3 class="h3_tit fz_02">2024</h3>
                     <ul>
+						<li class="award_88">
+                            <div>
+                                <p class="award_txt fz_03">100대 프랜차이즈 선정</p>
+                                <p class="award_tit fz_02">13년 연속 선정</p>
+                                <span>매일경제 주최</span>
+							</div>
+						</li>
+						<li class="award_87">
+                            <div>
+                                <p class="award_txt fz_03">2024 소비자가 선정한 품질만족 대상</p>
+                                <p class="award_tit fz_02">7년 연속 수상</p>
+                                <span>디지틀 조선일보 주최</span>
+							</div>
+						</li>
 						<li class="award_86">
                             <div>
                                 <p class="award_txt fz_03">2024 한국의 가장 사랑받는 브랜드 대상</p>
